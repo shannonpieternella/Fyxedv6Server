@@ -2,7 +2,7 @@ const { Decimal128 } = require('mongodb');
 const mongoose = require('mongoose');
 
 const CompanySchema = mongoose.Schema({
-    email_id: {
+    Email_id: {
         type: String,
         required: false
         },
