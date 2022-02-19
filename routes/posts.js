@@ -20,9 +20,9 @@ const res = require('express/lib/response');
 const router = express.Router();
 
 
-router.get('/mint', async (req,res) => {
+router.get('/companies', async (req,res) => {
     try{
-const updatedPost = await mint.find();
+const updatedPost = await Companies.find();
 res.json(updatedPost);
 } catch (err) {
     res.json({ message: err});
