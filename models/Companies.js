@@ -39,6 +39,13 @@ const CompanySchema = mongoose.Schema({
                                         type: String,
                                         required: false
                                         },
+                                        Image: {
+                                            type: String,
+                                            required: false
+                                            }
+
+                        
+
                                     
                             
                         
