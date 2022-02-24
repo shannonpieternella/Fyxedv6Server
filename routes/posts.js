@@ -35,12 +35,12 @@ res.json(updatedPost);
            const searchnow = req.params.search;
     
            if(searchnow == ""){
-            const allPosts = await companies.find();;
+            const allPosts = await Companies.find();;
             res.json(allPosts);
     
           
            }else{
-            const posts = await companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i'}});;
+            const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i'}});;
             res.json(posts);
            }
     
