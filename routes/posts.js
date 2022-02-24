@@ -37,7 +37,7 @@ res.json(updatedPost);
            if(searchnow == "undefined"){
             const allPosts = await Companies.find();;
             res.json(allPosts);
-            console.log('het werkt ' + allPosts)
+            console.log('het werkt! ' + allPosts)
     
           
            }else{
