@@ -34,7 +34,7 @@ res.json(updatedPost);
         try {
            const searchnow = req.params.search;
     
-           if(searchnow == undefined){
+           if(searchnow == ""){
             const allPosts = await Companies.find();;
             res.json(allPosts);
             console.log('het werkt ' + allPosts)
