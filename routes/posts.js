@@ -29,7 +29,25 @@ res.json(updatedPost);
 
 }
     });
-
+    
+    router.get('/searchfyxed/:search', async (req, res) => {
+        try {
+           const searchnow = req.params.search;
+    
+           if(searchnow == ""){
+            const allPosts = await companies.find();;
+            res.json(allPosts);
+    
+          
+           }else{
+            const posts = await companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i'}});;
+            res.json(posts);
+           }
+    
+        } catch (err) {
+            res.json({ message: err });
+            }
+    });    
    
 
     //Update post
