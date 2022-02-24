@@ -37,11 +37,14 @@ res.json(updatedPost);
            if(searchnow == ""){
             const allPosts = await Companies.find();;
             res.json(allPosts);
+            console.log('het werkt ' + allPosts)
     
           
            }else{
             const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i'}});;
             res.json(posts);
+            console.log('het werkt 2 ' + posts)
+
            }
     
         } catch (err) {
