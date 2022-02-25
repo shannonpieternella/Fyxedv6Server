@@ -16,7 +16,7 @@ const CompanySchema = mongoose.Schema({
                 required: false
                 },
                 Telefoonnummer: {
-                    type: String,
+                    type: Number,
                     required: false
                     },
                     Straatnaam: {
@@ -24,7 +24,7 @@ const CompanySchema = mongoose.Schema({
                         required: false
                         },
                         Huisnummer: {
-                            type: String,
+                            type: Number,
                             required: false
                             },
                             Postcode: {
