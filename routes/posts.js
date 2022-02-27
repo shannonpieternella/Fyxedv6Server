@@ -64,7 +64,7 @@ res.json(updatedPost);
            //save array count
            const countarray = searchstad.count;
 
-           if(searchnow == undefined || searchnow == "" || searchnow == null){
+           if(searchnow == "undefined" || searchnow == "" || searchnow == null){
             const allPosts = await Companies.find({Stad:searchstad});;
             res.json(allPosts);
             console.log('het werkt! ' + allPosts)
