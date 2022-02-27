@@ -53,22 +53,26 @@ res.json(updatedPost);
     });    
 
 
-    router.get('/sortstad/:search', async (req, res) => {
+    router.get('/sortstad/:search/:stad', async (req, res) => {
         try {
+            //save array cities
            const searchnow = req.params.search;
-    
-           if(searchnow == undefined || searchnow == "" || searchnow == null){
-            const allPosts = await Companies.find();
-            res.json(allPosts);
-            console.log('het werkt stad! ' + allPosts)
-    
-          
-           }else{
-            const posts = await Companies.find({Stad: {$regex:searchnow,$options: 'i'}});;
-            res.json(posts);
-            console.log('het werkt Stad ' + posts)
 
-           }
+            //save array cities
+            const searchstad = req.params.stad;
+           
+           //save array count
+           const countarray = searchstad.count;
+           
+            console.log(searchstad)
+            const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i', Stad:searchstad}});
+            // const postCombined = await posts.find({Stad:searchstad[i]})
+            // filteredArray.push(postCombined)
+            // const numbersCombined = {...numbersOne, ...numbersTwo};
+          
+            res.json(posts);
+           return console.log('het werkt Stad ' + posts)
+    
     
         } catch (err) {
             res.json({ message: err });
