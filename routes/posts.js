@@ -37,7 +37,7 @@ res.json(updatedPost);
             
                
 
-            if(searchnow == undefined || searchnow == null || searchnow == ""){
+            if(searchnow == "search"){
                
                 const allPosts = await Companies.find({Stad:searchstad});;
                 res.json(allPosts);
