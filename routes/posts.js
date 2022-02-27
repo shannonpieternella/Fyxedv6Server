@@ -40,15 +40,15 @@ res.json(updatedPost);
                 res.json(allPosts);
                 console.log('het werkt! ' + allPosts)
                 }
-                if(searchnow != "notworking"){
+             if(searchnow != "notworking"){
                 const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i', Stad:searchstad}});
                 res.json(posts);
                 console.log('het werkt 2 ' + posts)
-          }
+                }
     
-        } catch (err) {
-            res.json({ message: err });
-            }
+             } catch (err) {
+              res.json({ message: err });
+                  }
     });    
 
 
