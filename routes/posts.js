@@ -38,7 +38,7 @@ res.json(updatedPost);
            const searchstad = req.params.stad;
     
            if(searchnow == undefined || searchnow == "" || searchnow == null){
-            const allPosts = await Companies.find();;
+            const allPosts = await Companies.find({Stad:searchstad});;
             res.json(allPosts);
             console.log('het werkt! ' + allPosts)
     
