@@ -35,9 +35,10 @@ res.json(updatedPost);
             const searchnow = req.params.search;
             const searchstad = req.params.stad;  
             if(searchnow == "notworking"){
-                console.log('het werkt! ' + allPosts)
+               
                 const allPosts = await Companies.find({Stad:searchstad});;
                 res.json(allPosts);
+                console.log('het werkt! ' + allPosts)
                 
                     //  console.log("search " + searchnow + " Stad " + searchstad)
             }else{
