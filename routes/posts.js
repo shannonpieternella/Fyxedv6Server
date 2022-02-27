@@ -32,22 +32,18 @@ res.json(updatedPost);
     
     router.get('/searchfyxed/:search/:stad', async (req, res) => {
         try {
-           const searchnow = req.params.search;
-
-           //save array cities
-           const searchstad = req.params.stad;
-    console.log("search " + searchnow + " Stad " + searchstad)
-           if(searchnow == "notworking"){
-            console.log('het werkt! ' + allPosts)
-            const allPosts = await Companies.find({Stad:searchstad});;
-            res.json(allPosts);
-            
-    
-          
-           }else{
-            const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i', Stad:searchstad}});;
-            res.json(posts);
-            console.log('het werkt 2 ' + posts)
+            const searchnow = req.params.search;
+            const searchstad = req.params.stad;  
+            if(searchnow == "notworking"){
+                console.log('het werkt! ' + allPosts)
+                const allPosts = await Companies.find({Stad:searchstad});;
+                res.json(allPosts);
+                
+                    //  console.log("search " + searchnow + " Stad " + searchstad)
+            }else{
+                const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i', Stad:searchstad}});;
+                res.json(posts);
+                console.log('het werkt 2 ' + posts)
 
            }
     
