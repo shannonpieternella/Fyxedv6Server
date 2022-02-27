@@ -63,7 +63,14 @@ res.json(updatedPost);
            
            //save array count
            const countarray = searchstad.count;
-           
+
+           if(searchnow == undefined || searchnow == "" || searchnow == null){
+            const allPosts = await Companies.find({Stad:searchstad});;
+            res.json(allPosts);
+            console.log('het werkt! ' + allPosts)
+    
+          
+           }else{
             console.log(searchstad)
             const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i', Stad:searchstad}});
             // const postCombined = await posts.find({Stad:searchstad[i]})
@@ -72,6 +79,10 @@ res.json(updatedPost);
           
             res.json(posts);
            return console.log('het werkt Stad ' + posts)
+
+           }
+           
+            
     
     
         } catch (err) {
