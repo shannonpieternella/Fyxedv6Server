@@ -36,7 +36,7 @@ res.json(updatedPost);
 
            //save array cities
            const searchstad = req.params.stad;
-    
+    console.log("search " + searchnow + " Stad " + searchstad)
            if(searchnow == undefined || searchnow == "" || searchnow == null){
             const allPosts = await Companies.find({Stad:searchstad});;
             res.json(allPosts);
