@@ -34,17 +34,19 @@ res.json(updatedPost);
         try {
             const searchnow = req.params.search;
             const searchstad = req.params.stad;  
+            if(searchnow == "Pro"){
+                const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i', Stad:searchstad}});;
+                res.json(posts);
+                console.log('het werkt 2 ' + posts)
+                }
+                
             if(searchnow == "notworking"){
                
                 const allPosts = await Companies.find({Stad:searchstad});;
                 res.json(allPosts);
                 console.log('het werkt! ' + allPosts)
                 }
-            if(searchnow == "Pro"){
-                const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i', Stad:searchstad}});;
-                res.json(posts);
-                console.log('het werkt 2 ' + posts)
-                }
+            
     
              } catch (err) {
               res.json({ message: err });
