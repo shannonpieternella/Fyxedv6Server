@@ -31,9 +31,10 @@ res.json(updatedPost);
     });
     
     router.get('/searchfyxed/:search/:stad', async (req, res) => {
-        try {
+     
             const searchnow = req.params.search;
             const searchstad = req.params.stad;  
+            
             if(searchnow == "notworking"){
                
                 const allPosts = await Companies.find({Stad:searchstad});;
@@ -46,9 +47,7 @@ res.json(updatedPost);
                 console.log('het werkt 2 ' + posts)
                 }
     
-             } catch (err) {
-              res.json({ message: err });
-                  }
+             
     });    
 
 
