@@ -39,7 +39,8 @@ res.json(updatedPost);
                 const allPosts = await Companies.find({Stad:searchstad});;
                 res.json(allPosts);
                 console.log('het werkt! ' + allPosts)
-                }else{
+                }
+                if(searchnow != "notworking"){
                 const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i', Stad:searchstad}});
                 res.json(posts);
                 console.log('het werkt 2 ' + posts)
