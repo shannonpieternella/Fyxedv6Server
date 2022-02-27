@@ -67,7 +67,7 @@ res.json(updatedPost);
            if(searchnow == "undefined" || searchnow == "" || searchnow == null){
             const allPosts = await Companies.find({Stad:searchstad});;
             res.json(allPosts);
-            console.log('het werkt! ' + allPosts)
+            console.log('het werkt undefined! ' + allPosts + searchnow)
     
           
            }else{
