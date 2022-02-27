@@ -30,9 +30,12 @@ res.json(updatedPost);
 }
     });
     
-    router.get('/searchfyxed/:search', async (req, res) => {
+    router.get('/searchfyxed/:search/:stad', async (req, res) => {
         try {
            const searchnow = req.params.search;
+
+           //save array cities
+           const searchstad = req.params.stad;
     
            if(searchnow == undefined || searchnow == "" || searchnow == null){
             const allPosts = await Companies.find();;
@@ -41,7 +44,7 @@ res.json(updatedPost);
     
           
            }else{
-            const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i'}});;
+            const posts = await Companies.find({Bedrijfstype: {$regex:searchnow,$options: 'i', Stad:searchstad}});;
             res.json(posts);
             console.log('het werkt 2 ' + posts)
 
