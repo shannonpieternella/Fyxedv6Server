@@ -173,7 +173,7 @@ console.log('testwerkt')
 
         // submit mint post
 
-        router.post('/pushtokens/:tokenid', async (req,res) => {
+        router.get('/pushtokens/:tokenid', async (req,res) => {
           
 
             const post2 = new Pushtokens({
