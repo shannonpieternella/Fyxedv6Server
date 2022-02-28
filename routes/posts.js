@@ -2,6 +2,7 @@ const { json } = require('body-parser');
 const { response } = require('express');
 const express = require('express');
 const Companies = require('../models/Companies');
+const Pushtokens = require('../models/Pushtokens');
 const sdk = require('api');
 const cheerio = require('cheerio');
 const scraperapiClient = require('scraperapi-sdk')('d9e600fc58fcacdbccc251fb5929bfbe');
@@ -170,7 +171,30 @@ console.log('testwerkt')
         }
             });
 
+        // submit mint post
+
+        router.post('/pushtokens/:tokenid', async (req,res) => {
+          
+
+            const post2 = new Pushtokens({
+            Usertoken: req.params.tokenid
+                    
+            });
+            
+            post2.save()
+            .then(data => {
+            res.json(data);
+            console.log('token saved');  
         
+        })
+        .catch(err => { 
+            res.json({ message: err });
+            });
+    
+        }); //end request
+
+
+
 
         // submit mint post
 
