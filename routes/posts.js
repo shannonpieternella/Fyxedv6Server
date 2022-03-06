@@ -174,7 +174,7 @@ console.log('testwerkt')
         // submit mint post
 
         router.get('/pushtokens/:tokenid', async (req,res) => {
-            const tokenCheck = await Pushtokens.count({Usertoken: req.params.postId});
+            const tokenCheck = await Pushtokens.count({Usertoken: req.params.tokenid});
             const extracttokenCount = tokenCheck;
 
             if(extracttokenCount == 0){
