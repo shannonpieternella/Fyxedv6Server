@@ -174,23 +174,31 @@ console.log('testwerkt')
         // submit mint post
 
         router.get('/pushtokens/:tokenid', async (req,res) => {
-          
+            const tokenCheck = await mint.count({Usertoken: req.params.postId});
+            const extracttokenCount = tokenCheck;
 
-            const post2 = new Pushtokens({
-            Usertoken: req.params.tokenid
+            if(extracttokenCount == 0){
+                const post2 = new Pushtokens({
+                    Usertoken: req.params.tokenid
+                            
+                    });
                     
-            });
+                    post2.save()
+                    .then(data => {
+                    res.json(data);
+                    console.log('token saved');  
+                
+                })
+                .catch(err => { 
+                    res.json({ message: err });
+                    });
             
-            post2.save()
-            .then(data => {
-            res.json(data);
-            console.log('token saved');  
-        
-        })
-        .catch(err => { 
-            res.json({ message: err });
-            });
-    
+
+            }else{
+                console.log('already in db ' + extracttokenCount)
+            }
+
+           
         }); //end request
 
 
