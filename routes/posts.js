@@ -15,11 +15,54 @@ const Users = require('../models/Users');
 const bcrypt = require('bcrypt');
 const { restart } = require('nodemon');
 const res = require('express/lib/response');
+const Inbox = require('../models/Inbox');
 
 
 
 const router = express.Router();
 
+router.post('/inboxpost', async (req,res) => {
+
+    const tokenCheck = await Inbox.count({dbname: req.body.dbname});
+    const extracttokenCount = tokenCheck;
+    
+    if(extracttokenCount == 0){
+
+        const post2 = new Inbox({
+            pushtoken: req.body.pushtoken,
+            lastsentence: req.body.lastsentence,
+            user: req.body.user,
+            ondernemer: req.body.ondernemer,
+            dbname: req.body.dbname,
+            });
+            
+            post2.save()
+            .then(data => {
+            res.json(data);
+            console.log('Inbox');  
+        
+        })
+        .catch(err => { 
+            res.json({ message: err });
+            });
+
+    }else{
+        res.json('User and company already in inbox db');
+        console.log('User and company already in inbox db');  
+    }
+    
+
+}); //end request
+
+router.get('/inboxget', async (req,res) => {
+    try{
+const updatedPost = await Inbox.find();
+res.json(updatedPost);
+} catch (err) {
+    res.json({ message: err});
+
+}
+    });
 
 router.get('/companies', async (req,res) => {
     try{
