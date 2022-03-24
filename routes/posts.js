@@ -56,9 +56,9 @@ router.post('/inboxpost', async (req,res) => {
 
 }); //end request
 
-router.get('/inboxget', async (req,res) => {
+router.get('/inboxget/:user', async (req,res) => {
     try{
-const updatedPost = await Inbox.find();
+const updatedPost = await Inbox.find({user: req.params.user});
 res.json(updatedPost);
 } catch (err) {
     res.json({ message: err});
