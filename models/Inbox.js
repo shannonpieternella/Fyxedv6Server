@@ -30,6 +30,14 @@ const InboxSchema = mongoose.Schema({
                             type: String,
                             required: false
                             },
+                            created: {
+                                type: String,
+                                required: false
+                                },
+                                imagecompany: {
+                                    type: String,
+                                    required: false
+                                    },
 });
 
 module.exports = mongoose.model('inbox', InboxSchema);
