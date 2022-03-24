@@ -34,6 +34,8 @@ router.post('/inboxpost', async (req,res) => {
             user: req.body.user,
             ondernemer: req.body.ondernemer,
             dbname: req.body.dbname,
+            naambedrijf: req.body.naambedrijf,
+            naamuser: req.body.naamuser
             });
             
             post2.save()

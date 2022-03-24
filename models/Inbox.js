@@ -22,7 +22,14 @@ const InboxSchema = mongoose.Schema({
                         type: String,
                         required: false
                         },
- 
+                         naambedrijf: {
+                        type: String,
+                        required: false
+                        },
+                        naamuser: {
+                            type: String,
+                            required: false
+                            },
 });
 
 module.exports = mongoose.model('inbox', InboxSchema);
