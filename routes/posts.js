@@ -41,7 +41,7 @@ router.post('/engage', async (req,res) => {
             post2.save()
             .then(data => {
             res.json(data);
-            console.log('Inbox');  
+            console.log('saved');  
         
         })
         .catch(err => { 
@@ -49,8 +49,8 @@ router.post('/engage', async (req,res) => {
             });
 
     }else{
-        res.json('User and company already in inbox db');
-        console.log('User and company already in inbox db');  
+        res.json('User engagement and company already in engament db');
+        console.log('User engagement and company already in engament db');  
     }
     
 
