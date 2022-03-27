@@ -1,7 +1,7 @@
 const { Decimal128 } = require('mongodb');
 const mongoose = require('mongoose');
 
-const Engagements = mongoose.Schema({
+const Rates = mongoose.Schema({
     rating: {
         type: Number,
         required: false
@@ -41,4 +41,4 @@ const Engagements = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('engagements', Engagements);
+module.exports = mongoose.model('rates', Rates);

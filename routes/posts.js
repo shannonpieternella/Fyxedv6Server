@@ -17,20 +17,54 @@ const { restart } = require('nodemon');
 const res = require('express/lib/response');
 const Inbox = require('../models/Inbox');
 const Engagements = require('../models/Engagements');
+const Favorites = require('../models/Favorites');
 
 
 
 const router = express.Router();
 
 
-router.post('/engage', async (req,res) => {
+router.post('/favorites', async (req,res) => {
 
-    const tokenCheck = await Engagements.count({companyid: req.body.companyid, usertoken: req.body.usertoken});
+    const tokenCheck = await Favorites.count({companyid: req.body.companyid, usertoken: req.body.usertoken});
     const extracttokenCount = tokenCheck;
     
     if(extracttokenCount == 0){
 
-        const post2 = new Engagements({
+        const post2 = new Favorites({
+            rating: req.body.rating,
+            favorite: req.body.favorite,
+            companyid: req.body.companyid,
+            usertoken: req.body.usertoken,
+            companynaam: req.body.companynaam
+            });
+            
+            post2.save()
+            .then(data => {
+            res.json(data);
+            console.log('saved');  
+        
+        })
+        .catch(err => { 
+            res.json({ message: err });
+            });
+
+    }else{
+        res.json('User engagement and company already in engament db');
+        console.log('User engagement and company already in engament db');  
+    }
+    
+
+}); //end request
+
+router.post('/rates', async (req,res) => {
+
+    const tokenCheck = await Rates.count({companyid: req.body.companyid, usertoken: req.body.usertoken});
+    const extracttokenCount = tokenCheck;
+    
+    if(extracttokenCount == 0){
+
+        const post2 = new Rates({
             rating: req.body.rating,
             favorite: req.body.favorite,
             companyid: req.body.companyid,
