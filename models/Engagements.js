@@ -15,7 +15,7 @@ const Engagements = mongoose.Schema({
                 required: false
                 },
                 usertoken: {
-                    type: Number,
+                    type: String,
                     required: false
                     },
                     companynaam: {
