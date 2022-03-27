@@ -16,10 +16,46 @@ const bcrypt = require('bcrypt');
 const { restart } = require('nodemon');
 const res = require('express/lib/response');
 const Inbox = require('../models/Inbox');
+const Engagements = require('../models/Engagements');
 
 
 
 const router = express.Router();
+
+
+router.post('/engage', async (req,res) => {
+
+    const tokenCheck = await Engagements.count({companyid: req.body.companyid, usertoken: req.body.usertoken});
+    const extracttokenCount = tokenCheck;
+    
+    if(extracttokenCount == 0){
+
+        const post2 = new Engagements({
+            rating: req.body.rating,
+            favorite: req.body.favorite,
+            companyid: req.body.companyid,
+            usertoken: req.body.usertoken,
+            companynaam: req.body.companynaam
+            });
+            
+            post2.save()
+            .then(data => {
+            res.json(data);
+            console.log('Inbox');  
+        
+        })
+        .catch(err => { 
+            res.json({ message: err });
+            });
+
+    }else{
+        res.json('User and company already in inbox db');
+        console.log('User and company already in inbox db');  
+    }
+    
+
+}); //end request
+
 
 router.post('/inboxpost', async (req,res) => {
 
