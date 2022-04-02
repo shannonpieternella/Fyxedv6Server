@@ -58,6 +58,23 @@ router.post('/favorites', async (req,res) => {
 
 }); //end request
 
+router.get('/checkfavorite/:usertok/:companyname', async (req,res) => {
+    try{
+const updatedPost = await Favorites.count({usertoken: req.params.usertok, companynaam: req.params.companyname});
+const extracttokenCount = updatedPost;
+
+if(extracttokenCount == 1){
+res.json(true);
+} else {
+    res.json(false);  
+}
+
+} catch (err) {
+    res.json({ message: err});
+
+}
+    });
+
 router.post('/rates', async (req,res) => {
 
     const tokenCheck = await Rates.count({companyid: req.body.companyid, usertoken: req.body.usertoken});
