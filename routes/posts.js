@@ -77,6 +77,19 @@ await Favorites.findOneAndRemove({usertoken: req.params.usertok, companynaam: re
 }
     });
 
+    //
+    router.get('/favoritelist/:usertok', async (req,res) => {
+        try{
+    const updatedPost = await Favorites.find({usertoken: req.params.usertok});
+
+    res.json(updatedPost);
+    
+    } catch (err) {
+        res.json({ message: err});
+    
+    }
+        });
+
 router.post('/rates', async (req,res) => {
 
     const tokenCheck = await Rates.count({companyid: req.body.companyid, usertoken: req.body.usertoken});
@@ -109,6 +122,8 @@ router.post('/rates', async (req,res) => {
     
 
 }); //end request
+
+
 
 
 router.post('/inboxpost', async (req,res) => {
