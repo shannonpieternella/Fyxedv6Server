@@ -37,7 +37,9 @@ router.post('/favorites', async (req,res) => {
             favorite: req.body.favorite,
             companyid: req.body.companyid,
             usertoken: req.body.usertoken,
-            companynaam: req.body.companynaam
+            companynaam: req.body.companynaam,
+            stad: req.body.stad,
+            picture: req.body.picture
             });
             
             post2.save()
