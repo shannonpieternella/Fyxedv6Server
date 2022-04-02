@@ -22,9 +22,14 @@ const Favorites = mongoose.Schema({
                         type: String,
                         required: false
                         },
-                        
-                
-        
+                        stad: {
+                            type: String,
+                            required: false
+                            },
+                            picture: {
+                                type: String,
+                                required: false
+                                },
 
                         
 
