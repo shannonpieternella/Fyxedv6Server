@@ -65,7 +65,7 @@ const extracttokenCount = updatedPost;
 
 if(extracttokenCount == 1){
 res.json(true);
-Favorites.findOneAndRemove({usertoken: req.params.usertok, companynaam: req.params.companyname})
+Favorites.findOneAndDelete({usertoken: req.params.usertok, companynaam: req.params.companyname})
 
 } else {
     res.json(false);  
