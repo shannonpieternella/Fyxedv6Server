@@ -44,7 +44,7 @@ const CompanySchema = mongoose.Schema({
                                             required: false
                                             },
                                             rating: {
-                                                type: String,
+                                                type: Decimal128,
                                                 required: false
                                                 },
                                                 verification: {
