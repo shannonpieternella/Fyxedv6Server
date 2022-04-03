@@ -42,8 +42,21 @@ const CompanySchema = mongoose.Schema({
                                         Imagenew: {
                                             type: String,
                                             required: false
-                                            }
-
+                                            },
+                                            rating: {
+                                                type: String,
+                                                required: false
+                                                },
+                                                verification: {
+                                                    type: String,
+                                                    required: false
+                                                    },
+                                                    gallerij: {
+                                                        type: Array,
+                                                        required: false
+                                                        }
+            
+        
                         
 
                                     
