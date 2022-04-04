@@ -18,6 +18,7 @@ const res = require('express/lib/response');
 const Inbox = require('../models/Inbox');
 const Rates = require('../models/Rates');
 const Favorites = require('../models/Favorites');
+const Gallerij = require('../models/Gallerij');
 
 
 
