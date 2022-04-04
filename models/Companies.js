@@ -48,7 +48,7 @@ const CompanySchema = mongoose.Schema({
                                                 required: false
                                                 },
                                                 verification: {
-                                                    type: String,
+                                                    type: Boolean,
                                                     required: false
                                                     },
                                                     gallerij: {
