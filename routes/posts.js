@@ -183,6 +183,16 @@ res.json(updatedPost);
 
 }
     });
+
+    router.get('/gallerij', async (req,res) => {
+        try{
+    const updatedPost = await Gallerij.find();
+    res.json(updatedPost);
+    } catch (err) {
+        res.json({ message: err});
+    
+    }
+        });
     
     router.get('/searchfyxed/:search/:stad', async (req, res) => {
         try {
