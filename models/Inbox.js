@@ -38,6 +38,12 @@ const InboxSchema = mongoose.Schema({
                                     type: String,
                                     required: false
                                     },
+
+                                    datum: {
+                                    type: Date,
+                                    required: false
+                                    },
+                                    
 });
 
 module.exports = mongoose.model('inbox', InboxSchema);

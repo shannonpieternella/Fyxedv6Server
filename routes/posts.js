@@ -143,7 +143,8 @@ router.post('/inboxpost', async (req,res) => {
             ondernemer: req.body.ondernemer,
             dbname: req.body.dbname,
             naambedrijf: req.body.naambedrijf,
-            naamuser: req.body.naamuser
+            naamuser: req.body.naamuser,
+            datum: Date()
             });
             
             post2.save()
@@ -173,6 +174,16 @@ res.json(updatedPost);
 
 }
     });
+
+    router.get('/inboxuser/:user', async (req,res) => {
+        try{
+    const updatedPost = await Inbox.find({user: req.params.user});
+    res.json(updatedPost);
+    } catch (err) {
+        res.json({ message: err});
+    
+    }
+        });
 
 router.get('/companies', async (req,res) => {
     try{
