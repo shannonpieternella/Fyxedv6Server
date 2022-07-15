@@ -54,8 +54,19 @@ const CompanySchema = mongoose.Schema({
                                                     gallerij: {
                                                         type: Array,
                                                         required: false
-                                                        }
-            
+                                                        },
+                                                        Beschrijving: {
+                                                            type: String,
+                                                            required: false
+                                                            },
+                                                            agenda: {
+                                                                type: String,
+                                                                required: false
+                                                                },
+                                                                Pictures: {
+                                                                    type: String,
+                                                                    required: false
+                                                                    },
         
                         
 
