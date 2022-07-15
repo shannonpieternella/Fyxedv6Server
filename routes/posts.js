@@ -444,11 +444,11 @@ console.log('testwerkt')
 
               if( 1 == 1 ){
                 console.log('testwerkt 2')
-                const updatedPost = await Companies.findByIdAndUpdate({_id: req.params.postId}, { $set: { Beschrijving: editpost}});
+                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Beschrijving: 'hoi'}});
                 return res.json("Updated post edited");
               } else{
         
-                const updatedPost = await Companies.findByIdAndUpdate({_id: req.params.postId}, { $set: { Beschrijving: editpost}});
+                const updatedPost = await Companies.findByIdAndUpdate({_id: req.params.postId}, { $set: { Beschrijving: 'hoi'}});
               }
                  
             
