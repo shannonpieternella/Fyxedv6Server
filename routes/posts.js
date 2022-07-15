@@ -445,13 +445,13 @@ console.log('testwerkt')
 
               if( 1 == 1 ){
                 const updatedPost = await Companies.findByIdAndUpdate({_id: req.params.postId}, { $set: { Beschrijving: editpost}});
-        
+                return res.json("Updated post edited");
               } else{
         
                 const updatedPost = await Companies.findByIdAndUpdate({_id: req.params.postId}, { $set: { Beschrijving: editpost}});
               }
                  
-            return res.json("Updated post edited");
+            
            
         
         } catch (err) {
