@@ -431,6 +431,35 @@ console.log('testwerkt')
         }); //end request
 
 
+        //Ondernemers kunnen hier hun gevens opslaan en editen.
+
+        router.patch('/editondernemer/:postId/:editpost', async (req,res) => {
+            try{
+        // const updatedPost = await mint.findByIdAndUpdate(
+        //     {_id: req.params.postId },
+        // { $set: { Name: req.params.checkValue }}
+        
+        console.log('testwerkt')
+              const naam = "Name";
+              const idNow = await mint.findOne({_id: req.params.postId});
+
+              if( 1 == 1 ){
+                const updatedPost = await Companies.findByIdAndUpdate({_id: req.params.postId}, { $set: { Beschrijving: editpost}});
+        
+              } else{
+        
+                const updatedPost = await Companies.findByIdAndUpdate({_id: req.params.postId}, { $set: { Beschrijving: editpost}});
+              }
+                 
+            return res.json("Updated post edited");
+           
+        
+        } catch (err) {
+            res.json({ message: err});
+        
+        }
+            });
+
 
         
     
