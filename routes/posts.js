@@ -440,10 +440,10 @@ console.log('testwerkt')
         // { $set: { Name: req.params.checkValue }}
         
         console.log('testwerkt')
-              const naam = "Name";
-              const idNow = await mint.findOne({_id: req.params.postId});
+            
 
               if( 1 == 1 ){
+                console.log('testwerkt 2')
                 const updatedPost = await Companies.findByIdAndUpdate({_id: req.params.postId}, { $set: { Beschrijving: editpost}});
                 return res.json("Updated post edited");
               } else{
