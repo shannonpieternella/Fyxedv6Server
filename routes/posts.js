@@ -54,7 +54,7 @@ router.post('/favorites', async (req,res) => {
             });
 
     }else{
-        res.json('User engagement and company already in engament db');
+        res.json('User engagement and company already in engament db!');
         console.log('User engagement and company already in engament db');  
     }
     
