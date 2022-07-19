@@ -433,7 +433,7 @@ console.log('testwerkt')
 
         //Ondernemers kunnen hier hun gevens opslaan en editen.
 
-        router.patch('/editondernemer/:postId/:editpost', async (req,res) => {
+        router.patch('/editondernemer', async (req,res) => {
             try{
         // const updatedPost = await mint.findByIdAndUpdate(
         //     {_id: req.params.postId },
