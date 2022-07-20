@@ -144,7 +144,9 @@ router.post('/inboxpost', async (req,res) => {
             dbname: req.body.dbname,
             naambedrijf: req.body.naambedrijf,
             naamuser: req.body.naamuser,
-            datum: Date()
+            datum: Date(),
+            imagecompany:req.body.imagecompany
+
             });
             
             post2.save()
@@ -446,7 +448,7 @@ console.log('testwerkt')
                 console.log('testwerkt 2')
                 const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Beschrijving: req.body.Beschrijving}});
                 res.json(req.body.Beschrijving);
-              } else{
+              } else {
         
                 const updatedPost = await Companies.findByIdAndUpdate({_id: req.params.postId}, { $set: { 'Beschrijving': 'hoi'}});
               }
