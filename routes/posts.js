@@ -410,6 +410,7 @@ console.log('testwerkt')
           
             const tokenCheck = await Companies.count({companyid: req.body.companyid});
             const extracttokenCount = tokenCheck;
+            res.json(extracttokenCount);
             
     
         }); //end request
