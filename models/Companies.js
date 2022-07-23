@@ -69,7 +69,10 @@ const CompanySchema = mongoose.Schema({
                                                                         required: false
                                                                         },
             
-        
+                                                                        pushkey: {
+                                                                            type: String,
+                                                                            required: false
+                                                                            },
                         
 
                                     
