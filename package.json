@@ -9,6 +9,7 @@
   "author": "Shannon Pieternella",
   "license": "ISC",
   "dependencies": {
+    "@mollie/api-client": "^3.6.0",
     "@sendgrid/mail": "^7.4.7",
     "api": "^3.4.1",
     "bcrypt": "^5.0.1",

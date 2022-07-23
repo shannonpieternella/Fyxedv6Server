@@ -20,10 +20,32 @@ const Rates = require('../models/Rates');
 const Favorites = require('../models/Favorites');
 const Gallerij = require('../models/Gallerij');
 
+const { createMollieClient } = require('@mollie/api-client');
+const mollieClient = createMollieClient({ apiKey: 'test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });
+
 
 
 
 const router = express.Router();
+
+router.post('/mollie', async (req,res) => {
+
+
+(async () => {
+  const subscription = await mollieClient.customers_subscriptions.create({
+    customerId: req.body.customer,
+    amount: {
+      currency: 'EUR',
+      value: req.body.price,
+    },
+    times: 4,
+    interval: '3 months',
+    description: 'Quarterly payment',
+    webhookUrl: req.body.webhooking,
+  });
+})();
+
+}); //end request
 
 
 router.post('/favorites', async (req,res) => {
