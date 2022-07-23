@@ -40,9 +40,9 @@ router.post('/mollie', async (req,res) => {
     },
     times: 4,
     interval: '3 months',
-    description: 'Quarterly payment',
+    description: req.body.calc,
     webhookUrl: req.body.webhooking,
-    
+
 
   });
 })();
