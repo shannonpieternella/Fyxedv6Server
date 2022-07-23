@@ -410,7 +410,7 @@ console.log('testwerkt')
           
             const tokenCheck = await Companies.find({_id: req.body.companyid});
 
-            const token = await tokenCheck[0];
+            const token = await tokenCheck[0]._id.toString();
             await console.log(' token ', token);
             
     
