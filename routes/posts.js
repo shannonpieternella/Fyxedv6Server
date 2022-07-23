@@ -440,7 +440,7 @@ console.log('testwerkt')
 
                                     
                 
-                    }); //end request
+                  }); //end request
 
                     router.post('/users/login', async (req,res) => {
                     console.log('stap 1')
