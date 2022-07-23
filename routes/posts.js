@@ -21,7 +21,7 @@ const Favorites = require('../models/Favorites');
 const Gallerij = require('../models/Gallerij');
 
 const { createMollieClient } = require('@mollie/api-client');
-const mollieClient = createMollieClient({ apiKey: 'test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });
+const mollieClient = createMollieClient({ apiKey: 'Bearer test_Mq4M2FHdQNtrjmqcUtjJxaq5kRSEfc' });
 
 
 
