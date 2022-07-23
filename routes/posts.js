@@ -412,9 +412,6 @@ console.log('testwerkt')
 
             const token = await tokenCheck[0].pushkey.toString();
             await console.log(' token ', token);
-
-               
-            console.log(token);
             
     
         }); //end request
