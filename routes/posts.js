@@ -21,7 +21,7 @@ const Favorites = require('../models/Favorites');
 const Gallerij = require('../models/Gallerij');
 
 const { createMollieClient } = require('@mollie/api-client');
-const mollieClient = createMollieClient({ apiKey: 'Bearer test_Mq4M2FHdQNtrjmqcUtjJxaq5kRSEfc' });
+const mollieClient = createMollieClient({ apiKey: 'test_Mq4M2FHdQNtrjmqcUtjJxaq5kRSEfc' });
 
 
 
@@ -42,7 +42,7 @@ router.post('/mollie', async (req,res) => {
     interval: '3 months',
     description: 'Quarterly payment',
     webhookUrl: req.body.webhooking,
-    
+
   });
 })();
 
