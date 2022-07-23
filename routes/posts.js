@@ -412,7 +412,26 @@ console.log('testwerkt')
 
             const token = await tokenCheck[0].pushkey.toString();
             await console.log(' token ', token);
-            
+
+            await fetch('https://fcm.googleapis.com/fcm/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `AAAAUKTtVSk:APA91bEgyrpUUEJLfBcvbTpwaT_nhFlFrAoYDngk1GYCuSgxAYgZ16mhH9sGGIP_ylXwQWursEyrTHyYJBiYAiyvkMruExwmK_5MhB7DNakpR3QIwMNA1YaJGNr8-1toMzppGxHq2T-R`,
+            },
+            body: JSON.stringify({
+                to: 'token',
+                priority: 'normal',
+                data: {
+                experienceId: 'shannonp',
+                scopeKey: 'shannonp',
+                title: "📧 You've got mail",
+                message: 'Hello world! 🌐',
+                },
+            }),
+            });
+
+                        
     
         }); //end request
 
