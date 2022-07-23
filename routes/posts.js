@@ -420,11 +420,11 @@ console.log('testwerkt')
 
             var raw = JSON.stringify({
             "to": token,
-            "title": "Foo",
+            "title": textnew,
             "badge": 42,
             "body": "Bar",
             "data": {
-                "foo": "bar"
+                text: "hoi"
             }
             });
 
