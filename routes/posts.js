@@ -420,7 +420,7 @@ console.log('testwerkt')
 
             var raw = JSON.stringify({
             "to": token,
-            "title": textnew,
+            "title": "Fyxed Lead",
             "badge": 42,
             "body": textnew,
             "data": {
