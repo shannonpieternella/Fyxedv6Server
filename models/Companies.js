@@ -67,6 +67,11 @@ const CompanySchema = mongoose.Schema({
                                                                     type: String,
                                                                     required: false
                                                                     },
+                                                                    Maplink: {
+                                                                        type: String,
+                                                                        required: false
+                                                                        },
+            
         
                         
 

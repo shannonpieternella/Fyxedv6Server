@@ -406,6 +406,14 @@ console.log('testwerkt')
     
         }); //end request
 
+        router.post('/notify', async (req,res) => {
+          
+            const tokenCheck = await Companies.count({companyid: req.body.companyid});
+            const extracttokenCount = tokenCheck;
+            
+    
+        }); //end request
+
         router.post('/users/login', async (req,res) => {
           console.log('stap 1')
             const user = await Users.find({Email_id: req.body.Email_id})
