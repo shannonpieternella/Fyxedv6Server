@@ -413,7 +413,7 @@ console.log('testwerkt')
             const token = await tokenCheck[0].pushkey.toString();
             await console.log(' token ', token);
 
-                        var myHeaders = new Headers();
+            var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
 
             var raw = JSON.stringify({
