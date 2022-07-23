@@ -409,8 +409,8 @@ console.log('testwerkt')
         router.post('/notify', async (req,res) => {
           
             const tokenCheck = await Companies.find({_id: req.body.companyid});
-            const extracttokenCount = tokenCheck;
-            res.json(extracttokenCount);
+            const extractfieldtoken = tokenCheck.pushkey;
+            res.json(extractfieldtoken);
             
     
         }); //end request
