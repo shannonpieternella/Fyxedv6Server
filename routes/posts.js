@@ -422,9 +422,9 @@ console.log('testwerkt')
             "to": token,
             "title": textnew,
             "badge": 42,
-            "body": "Bar",
+            "body": textnew,
             "data": {
-                text: "hoi"
+                textnew: "hoi"
             }
             });
 
