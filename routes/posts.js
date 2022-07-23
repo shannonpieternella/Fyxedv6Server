@@ -410,7 +410,7 @@ console.log('testwerkt')
           
             const tokenCheck = await Companies.find({_id: req.body.companyid});
             const extractfieldtoken = await tokenCheck[0].pushkey.toString();
-            res.json("extractfieldtoken");
+            res.json("extractfieldtokenhh");
             
     
         }); //end request
