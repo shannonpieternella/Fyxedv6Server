@@ -51,10 +51,7 @@ const CompanySchema = mongoose.Schema({
                                                     type: Boolean,
                                                     required: false
                                                     },
-                                                    gallerij: {
-                                                        type: Array,
-                                                        required: false
-                                                        },
+                                                    
                                                         Beschrijving: {
                                                             type: String,
                                                             required: false
