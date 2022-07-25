@@ -35,7 +35,7 @@ router.post('/gebruikers', async (req,res) => {
     const gebruikers = await Users.find({Email_id: req.body.emailadres});
 
     extractId = await gebruikers[0]._id.stringify();
-    console.log("Email_id " + extractGebruikers)
+    console.log("Email_id " + gebruikersCount)
 
     // extractVoornaam = await gebruikers[0].Voornaam.stringify();
     // console.log("Voornaam " + extractVoornaam)
