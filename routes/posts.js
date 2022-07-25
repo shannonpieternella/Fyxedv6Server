@@ -28,6 +28,52 @@ const mollieClient = createMollieClient({ apiKey: 'test_Mq4M2FHdQNtrjmqcUtjJxaq5
 
 const router = express.Router();
 
+
+router.post('/gebruiker', async (req,res) => {
+    try{
+        const updatedPost = await Users.findById({_id: req.body.id});
+        res.json(updatedPost);
+
+} catch (err) {
+    res.json({ message: err});
+
+}
+    });
+
+router.get('/gebruiker', async (req,res) => {
+    try{
+const updatedPost = await Favorites.count({usertoken: req.params.usertok, companynaam: req.params.companyname});
+const extracttokenCount = updatedPost;
+
+if(extracttokenCount == 1){
+res.json(true);
+await Favorites.findOneAndRemove({usertoken: req.params.usertok, companynaam: req.params.companyname})
+
+} else {
+    res.json(false);  
+}
+
+} catch (err) {
+    res.json({ message: err});
+
+}
+    });
+
+    //
+    router.get('/favoritelist/:usertok', async (req,res) => {
+        try{
+    const updatedPost = await Favorites.find({usertoken: req.params.usertok});
+
+    res.json(updatedPost);
+    
+    } catch (err) {
+        res.json({ message: err});
+    
+    }
+        });
+
+
+
 router.post('/gebruikers', async (req,res) => {
 
     const gebruikersCount = await Users.count({Email_id: req.body.emailadres});
