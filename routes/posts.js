@@ -62,7 +62,7 @@ router.post('/gebruikers', async (req,res) => {
 
 
  
-    extractId = await gebruikers[0]._id.stringify();
+    extractId = await gebruikers[0]._id.toString();
     console.log("Email_id " + gebruikersCount)
 
         const voornaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Voornaam: req.body.naam}});
