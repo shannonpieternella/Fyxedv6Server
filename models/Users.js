@@ -38,6 +38,14 @@ const UserSchema = mongoose.Schema({
                                         type: String,
                                         required: false
                                         },
+                                       ondernemer: {
+                                            type: Boolean,
+                                            required: false
+                                            },
+                                            ondernemerId: {
+                                                type: Boolean,
+                                                required: false
+                                                }
                                    
     
     
