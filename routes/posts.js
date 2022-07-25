@@ -46,15 +46,8 @@ router.post('/gebruikers', async (req,res) => {
     // extractTelefoon = await gebruikers[0].Telefoonnummer.stringify();
     // console.log("Telefoon nummer " + extractTelefoon)
 
-    if(gebruikersCount == 1) {
+    if(gebruikersCount == 0) {
         
-        const voornaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Voornaam: req.body.naam}});
-        const achternaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Achternaam: req.body.lastname}});
-        const telefoonnummer = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Telefoonnummer: req.body.telefoonnr}});
-        const mailadres = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Email_id: req.body.emailadres}});
-
-    }else{
-
         const userPost = new Users({
             Voornaam: req.body.naam,
             Achternaam: req.body.lastname,
@@ -68,6 +61,13 @@ router.post('/gebruikers', async (req,res) => {
             console.log('saved'); 
         })
         
+    }else{
+
+        const voornaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Voornaam: req.body.naam}});
+        const achternaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Achternaam: req.body.lastname}});
+        const telefoonnummer = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Telefoonnummer: req.body.telefoonnr}});
+        const mailadres = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Email_id: req.body.emailadres}});
+
 
     }
 
