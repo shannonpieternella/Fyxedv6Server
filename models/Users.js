@@ -43,7 +43,7 @@ const UserSchema = mongoose.Schema({
                                             required: false
                                             },
                                             ondernemerId: {
-                                                type: Boolean,
+                                                type: String,
                                                 required: false
                                                 }
                                    
