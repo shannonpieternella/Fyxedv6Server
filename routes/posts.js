@@ -55,7 +55,7 @@ router.post('/gebruikers', async (req,res) => {
             userPost.save()
             .then(data => {
             res.json(data);
-            console.log('saved'); 
+            console.log('saved.'); 
         })
         
     }else{
