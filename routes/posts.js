@@ -30,12 +30,9 @@ const router = express.Router();
 
 router.post('/gebruikers', async (req,res) => {
 
-
     const gebruikersCount = await Users.count({Email_id: req.body.emailadres});
     const gebruikers = await Users.find({Email_id: req.body.emailadres});
 
-    extractId = await gebruikers[0]._id.stringify();
-    console.log("Email_id " + gebruikersCount)
 
     // extractVoornaam = await gebruikers[0].Voornaam.stringify();
     // console.log("Voornaam " + extractVoornaam)
@@ -62,6 +59,11 @@ router.post('/gebruikers', async (req,res) => {
         })
         
     }else{
+
+
+ 
+    extractId = await gebruikers[0]._id.stringify();
+    console.log("Email_id " + gebruikersCount)
 
         const voornaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Voornaam: req.body.naam}});
         const achternaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Achternaam: req.body.lastname}});
