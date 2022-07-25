@@ -50,6 +50,7 @@ router.post('/gebruikers', async (req,res) => {
             Achternaam: req.body.lastname,
             Telefoonnummer: req.body.telefoonnr,
             Email_id: req.body.emailadres,
+            pushtoken: req.body.pushtoken,
             });
             
             userPost.save()
