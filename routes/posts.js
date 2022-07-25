@@ -28,6 +28,55 @@ const mollieClient = createMollieClient({ apiKey: 'test_Mq4M2FHdQNtrjmqcUtjJxaq5
 
 const router = express.Router();
 
+router.post('/gebruikers', async (req,res) => {
+
+
+    const gebruikersCount = await Users.count({Email_id: req.body.emailadres});
+    const gebruikers = await Users.find({Email_id: req.body.emailadres});
+
+    extractId = await gebruikers[0]._id.stringify();
+    console.log("Email_id " + extractGebruikers)
+
+    // extractVoornaam = await gebruikers[0].Voornaam.stringify();
+    // console.log("Voornaam " + extractVoornaam)
+
+    // extractAchternaam = await gebruikers[0].Achternaam.stringify();
+    // console.log("Achternaam " + extractAchternaam)
+
+    // extractTelefoon = await gebruikers[0].Telefoonnummer.stringify();
+    // console.log("Telefoon nummer " + extractTelefoon)
+
+    if(gebruikersCount == 1) {
+        
+        const voornaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Voornaam: req.body.naam}});
+        const achternaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Achternaam: req.body.lastname}});
+        const telefoonnummer = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Telefoonnummer: req.body.telefoonnr}});
+        const mailadres = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Email_id: req.body.emailadres}});
+
+    }else{
+
+        const userPost = new Users({
+            Voornaam: req.body.naam,
+            Achternaam: req.body.lastname,
+            Telefoonnummer: req.body.telefoonnr,
+            Email_id: req.body.emailadres,
+            });
+            
+            userPost.save()
+            .then(data => {
+            res.json(data);
+            console.log('saved'); 
+        })
+        
+
+    }
+
+
+
+
+    
+    }); //end request
+
 router.post('/mollie', async (req,res) => {
 
 

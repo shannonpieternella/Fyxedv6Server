@@ -6,10 +6,14 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: false
         },
-        Password: {
+        Voornaam: {
             type: String,
             required: false
             },
+            Achternaam: {
+                type: String,
+                required: false
+                },
                 Telefoonnummer: {
                     type: String,
                     required: false
