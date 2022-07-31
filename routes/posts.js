@@ -191,10 +191,10 @@ router.post('/mollie', async (req,res) => {
     customerId: req.body.customer,
     amount: {
       currency: 'EUR',
-      value: "198.00",
+      value: "199.00",
     },
     times: 4,
-    interval: '3 months',
+    interval: '1 month',
     description: req.body.calc,
     webhookUrl: req.body.webhooking,
 
