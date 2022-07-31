@@ -661,14 +661,41 @@ console.log('testwerkt')
         console.log('testwerkt')
             
 
-              if( 1 == 1 ){
-                console.log('testwerkt 2')
-                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Beschrijving: req.body.Beschrijving}});
+              if( req.body.naambedrijf == 'naambedrijf' ){
+                console.log('naam')
+                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Bedrijfsnaam: req.body.naambedrijf}});
                 res.json(req.body.Beschrijving);
-              } else {
-        
-                const updatedPost = await Companies.findByIdAndUpdate({_id: req.params.postId}, { $set: { 'Beschrijving': 'hoi'}});
               }
+
+              if( req.body.stad == 'stad' ){
+                console.log('naam')
+                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Stad: req.body.stad}});
+                res.json(req.body.Beschrijving);
+              }
+
+              if( req.body.maplink == 'maplink' ){
+                console.log('naam')
+                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { maplink: req.body.maplink}});
+                res.json(req.body.Beschrijving);
+              }
+
+              if( req.body.profielimage == 'profielimage' ){
+                console.log('naam')
+                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Imagenew: req.body.profielimage}});
+                res.json(req.body.Beschrijving);
+              }
+
+              if( req.body.typebedrijf == 'bedrijfstype' ){
+                console.log('naam')
+                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Bedrijfstype: req.body.bedrijfstype}});
+                res.json(req.body.Beschrijving);
+              }
+
+
+
+
+
+
                  
             
            
