@@ -12,6 +12,7 @@ const Long = BSON.Long;
 const sgMail = require('@sendgrid/mail') 
 const postmark = require("postmark");
 const Users = require('../models/Users');
+const Users = require('../models/Abonees');
 const bcrypt = require('bcrypt');
 const { restart } = require('nodemon');
 const res = require('express/lib/response');
@@ -21,12 +22,67 @@ const Favorites = require('../models/Favorites');
 const Gallerij = require('../models/Gallerij');
 
 const { createMollieClient } = require('@mollie/api-client');
+const Abonees = require('../models/Abonees');
 const mollieClient = createMollieClient({ apiKey: 'test_Mq4M2FHdQNtrjmqcUtjJxaq5kRSEfc' });
 
 
 
 
 const router = express.Router();
+
+//abonees
+
+router.post('/Abonees', async (req,res) => {
+
+    const AboneesCount = await Abonees.count({Email_id: req.body.emailadres});
+    const gebruikers = await Abonees.find({Email_id: req.body.emailadres});
+
+
+    // extractVoornaam = await gebruikers[0].Voornaam.stringify();
+    // console.log("Voornaam " + extractVoornaam)
+
+    // extractAchternaam = await gebruikers[0].Achternaam.stringify();
+    // console.log("Achternaam " + extractAchternaam)
+
+    // extractTelefoon = await gebruikers[0].Telefoonnummer.stringify();
+    // console.log("Telefoon nummer " + extractTelefoon)
+
+    if(AboneesCount == 0) {
+        
+        const AboneesPost = new Abonees({
+            Voornaam: req.body.naam,
+            Achternaam: req.body.lastname,
+            Email_id: req.body.emailadres,
+            pushtoken: req.body.pushtoken
+            });
+            
+            AboneesPost.save()
+            .then(data => {
+            res.json(data);
+            console.log('saved abonees'); 
+        })
+        
+    }else{
+
+
+ 
+    extractId = await gebruikers[0]._id.toString();
+    console.log("Email_id " + AboneesCount)
+
+        const deletedPost = await Abonees.findByIdAndDelete(_id, extractId);
+        console.log(extractId + 'Post Deleted')
+        // const achternaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Achternaam: req.body.lastname}});
+        // const telefoonnummer = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Telefoonnummer: req.body.telefoonnr}});
+        // const mailadres = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Email_id: req.body.emailadres}});
+
+
+    }
+
+
+
+
+    
+    }); //end request
 
 
 router.post('/gebruiker', async (req,res) => {

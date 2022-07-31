@@ -73,6 +73,22 @@ const CompanySchema = mongoose.Schema({
                                                                             type: String,
                                                                             required: false
                                                                             },
+                                                                            agendacount: {
+                                                                                type: Number,
+                                                                                required: false
+                                                                                },
+                                                                                chatcount: {
+                                                                                    type: Number,
+                                                                                    required: false
+                                                                                    },
+                                                                                    limitagenda: {
+                                                                                        type: Number,
+                                                                                        required: false
+                                                                                        },
+                                                                                        limitchatcount: {
+                                                                                            type: Number,
+                                                                                            required: false
+                                                                                            }
                         
 
                                     
