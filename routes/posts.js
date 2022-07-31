@@ -12,7 +12,6 @@ const Long = BSON.Long;
 const sgMail = require('@sendgrid/mail') 
 const postmark = require("postmark");
 const Users = require('../models/Users');
-const Users = require('../models/Abonees');
 const bcrypt = require('bcrypt');
 const { restart } = require('nodemon');
 const res = require('express/lib/response');
