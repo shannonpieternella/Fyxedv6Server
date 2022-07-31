@@ -202,6 +202,8 @@ router.post('/mollie', async (req,res) => {
   });
 })();
 
+res.json('Gelukt');
+
 }); //end request
 
 
