@@ -32,7 +32,7 @@ const router = express.Router();
 
 //abonees
 
-router.post('/Abonees', async (req,res) => {
+router.post('/abonees', async (req,res) => {
 
     const AboneesCount = await Abonees.count({Email_id: req.body.emailadres});
     const gebruikers = await Abonees.find({Email_id: req.body.emailadres});
