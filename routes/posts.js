@@ -191,7 +191,7 @@ router.post('/mollie', async (req,res) => {
     customerId: req.body.customer,
     amount: {
       currency: 'EUR',
-      value: 198.00,
+      value: "198.00",
     },
     times: 4,
     interval: '3 months',
