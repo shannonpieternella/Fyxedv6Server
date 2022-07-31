@@ -202,7 +202,7 @@ router.post('/mollie', async (req,res) => {
   });
 })();
 
-res.json('Gelukt nu');
+res.json('Gelukt nuu');
 
 }); //end request
 
