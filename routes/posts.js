@@ -651,6 +651,70 @@ console.log('testwerkt')
                     }
         }); //end request
 
+        router.post('/notifyklant', async (req,res) => {
+          
+            const tokenCheck = await Users.find({_id: req.body.klantid});
+            const textnew = req.body.message;
+            await console.log(' text', textnew);
+
+            const token = await tokenCheck[0].pushtoken.toString();
+            await console.log(' token ', token);
+
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            var raw = JSON.stringify({
+            "to": token,
+            "title": "Fyxed",
+            "badge": 42,
+            "body": textnew,
+            "data": {
+                textnew: "Je hebt een nieuw bericht"
+            }
+            });
+
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+
+            fetch("https://exp.host/--/api/v2/push/send", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+                                    
+                
+                  }); //end request
+
+                    router.post('/users/login', async (req,res) => {
+                    console.log('stap 1')
+                        const user = await Users.find({Email_id: req.body.Email_id})
+                        const userCount = await Users.count({Email_id: req.body.Email_id})
+
+                    if (userCount == 0){
+                        console.log('stap 2')
+                        return res.status(400).send('Cannot find user')
+                    }
+                    const pw = await user[0].Password.toString();
+                    console.log(pw + " field password")
+                    console.log('middle', + req.body.Password + " user pw" + pw)
+                    try {
+                        if(await bcrypt.compare(req.body.Password, pw)) {
+                
+                        res.send('Success')
+                        console.log('Success')
+                    } else {
+                        res.send('Not Allowed')
+                        console.log('Not Allowed')
+                    }
+                        } catch {
+                        res.status(500).send()
+                    }
+        }); //end request
+
 
         //Ondernemers kunnen hier hun gevens opslaan en editen.
 
