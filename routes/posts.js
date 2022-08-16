@@ -76,57 +76,57 @@ router.post('/notifiedklant', async (req,res) => {
 //abonees
 
 
-router.post('/abonees', async (req,res) => {
+// router.post('/abonees', async (req,res) => {
 
-    const AboneesCount = await Abonees.count({Email_id: req.body.emailadres});
-    const gebruikers = await Abonees.find({Email_id: req.body.emailadres});
+//     const AboneesCount = await Abonees.count({Email_id: req.body.emailadres});
+//     const gebruikers = await Abonees.find({Email_id: req.body.emailadres});
 
 
-    // extractVoornaam = await gebruikers[0].Voornaam.stringify();
-    // console.log("Voornaam " + extractVoornaam)
+//     // extractVoornaam = await gebruikers[0].Voornaam.stringify();
+//     // console.log("Voornaam " + extractVoornaam)
 
-    // extractAchternaam = await gebruikers[0].Achternaam.stringify();
-    // console.log("Achternaam " + extractAchternaam)
+//     // extractAchternaam = await gebruikers[0].Achternaam.stringify();
+//     // console.log("Achternaam " + extractAchternaam)
 
-    // extractTelefoon = await gebruikers[0].Telefoonnummer.stringify();
-    // console.log("Telefoon nummer " + extractTelefoon)
+//     // extractTelefoon = await gebruikers[0].Telefoonnummer.stringify();
+//     // console.log("Telefoon nummer " + extractTelefoon)
 
-    if(AboneesCount == 0) {
+//     if(AboneesCount == 0) {
         
-        const AboneesPost = new Abonees({
-            Voornaam: req.body.naam,
-            Achternaam: req.body.lastname,
-            Email_id: req.body.emailadres,
-            pushtoken: req.body.pushtoken
-            });
+//         const AboneesPost = new Abonees({
+//             Voornaam: req.body.naam,
+//             Achternaam: req.body.lastname,
+//             Email_id: req.body.emailadres,
+//             pushtoken: req.body.pushtoken
+//             });
             
-            AboneesPost.save()
-            .then(data => {
-            res.json(data);
-            console.log('saved abonees'); 
-        })
+//             AboneesPost.save()
+//             .then(data => {
+//             res.json(data);
+//             console.log('saved abonees'); 
+//         })
         
-    }else{
+//     }else{
 
 
  
-    extractId = await gebruikers[0]._id.toString();
-    console.log("Email_id " + AboneesCount)
+//     extractId = await gebruikers[0]._id.toString();
+//     console.log("Email_id " + AboneesCount)
 
-        const deletedPost = await Abonees.findByIdAndDelete(_id, extractId);
-        console.log(extractId + 'Post Deleted')
-        // const achternaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Achternaam: req.body.lastname}});
-        // const telefoonnummer = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Telefoonnummer: req.body.telefoonnr}});
-        // const mailadres = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Email_id: req.body.emailadres}});
+//         const deletedPost = await Abonees.findByIdAndDelete(_id, extractId);
+//         console.log(extractId + 'Post Deleted')
+//         // const achternaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Achternaam: req.body.lastname}});
+//         // const telefoonnummer = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Telefoonnummer: req.body.telefoonnr}});
+//         // const mailadres = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Email_id: req.body.emailadres}});
 
 
-    }
+//     }
 
 
 
 
     
-    }); //end request
+//     }); //end request
 
 
 router.post('/gebruiker', async (req,res) => {
