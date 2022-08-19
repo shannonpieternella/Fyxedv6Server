@@ -91,7 +91,7 @@ router.post('/notifiedklant', async (req,res) => {
     "badge": 42,
     "body": textnew,
     "data": {
-        textnew: "Je hebt een nieuw bericht"
+        textnew: "Je hebt een nieuw bericht!"
     }
     });
 
