@@ -30,6 +30,45 @@ const mollieClient = createMollieClient({ apiKey: 'test_Mq4M2FHdQNtrjmqcUtjJxaq5
 const router = express.Router();
 
 
+router.post('/notify', async (req,res) => {
+          
+    const tokenCheck = await Companies.find({_id: req.body.companyid});
+    const textnew = req.body.message;
+    await console.log(' text', textnew);
+
+    const token = await tokenCheck[0].pushkey.toString();
+    await console.log(' token ', token);
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+    "to": token,
+    "title": "Fyxed Lead",
+    "badge": 42,
+    "body": textnew,
+    "data": {
+        textnew: "hoi hoi"
+    }
+    });
+
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    fetch("https://exp.host/--/api/v2/push/send", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
+                            
+        
+          }); //end request
+
+
 
 
 router.post('/notifiedklant', async (req,res) => {
@@ -632,45 +671,7 @@ console.log('testwerkt')
     
         }); //end request
 
-        router.post('/notify', async (req,res) => {
-          
-            const tokenCheck = await Companies.find({_id: req.body.companyid});
-            const textnew = req.body.message;
-            await console.log(' text', textnew);
-
-            const token = await tokenCheck[0].pushkey.toString();
-            await console.log(' token ', token);
-
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-
-            var raw = JSON.stringify({
-            "to": token,
-            "title": "Fyxed Lead",
-            "badge": 42,
-            "body": textnew,
-            "data": {
-                textnew: "hoi hoi"
-            }
-            });
-
-            var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-            };
-
-            fetch("https://exp.host/--/api/v2/push/send", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
-                                    
-                
-                  }); //end request
-
-
+       
                  
         
                           
