@@ -650,7 +650,7 @@ console.log('testwerkt')
             "badge": 42,
             "body": textnew,
             "data": {
-                textnew: "hoi"
+                textnew: "hoi hoi"
             }
             });
 
