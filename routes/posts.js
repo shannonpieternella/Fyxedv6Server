@@ -73,7 +73,7 @@ router.post('/notify', async (req,res) => {
 
 router.post('/notifiedklant', async (req,res) => {
 
-    console.log('hoi');
+    console.log('hoii');
           
     const tokenCheck = await Users.find({_id: req.body.klantid});
     const textnew = req.body.message;
