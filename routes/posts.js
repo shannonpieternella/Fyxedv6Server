@@ -120,7 +120,7 @@ router.post('/abonnees', async (req,res) => {
     const AboneesCount = await Abonees.count({Email_id: req.body.emailadres, companysubscriptie: req.body.companysid});
     const gebruikers = await Abonees.find({Email_id: req.body.emailadres, companysubscriptie: req.body.companysid});
     //const companySubscribed = await Abonees.find({});
-    await console.log('Abonees Count' + AboneesCount);
+    await console.log('Abonees Countt' + AboneesCount);
 
     // extractVoornaam = await gebruikers[0].Voornaam.stringify();
     // console.log("Voornaam " + extractVoornaam)
