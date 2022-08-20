@@ -37,7 +37,12 @@ const UserAbonees = mongoose.Schema({
                                     pushtoken: {
                                         type: String,
                                         required: false
-                                        }
+                                        },
+                                        companysid: {
+                                            type: String,
+                                            required: false
+                                            }
+                                    
                                        
                                    
     
