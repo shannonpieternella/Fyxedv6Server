@@ -213,6 +213,17 @@ await Favorites.findOneAndRemove({usertoken: req.params.usertok, companynaam: re
     }
         });
 
+        router.post('/gebruikersprofiel', async (req,res) => {
+
+            const gebruikersCount = await Users.count({Email_id: req.body.emailadres});
+            const gebruikers = await Users.find({Email_id: req.body.emailadres});
+        
+        
+          res.json(gebruikers);
+        
+        
+            
+            }); //end request        
 
 
 router.post('/gebruikers', async (req,res) => {
