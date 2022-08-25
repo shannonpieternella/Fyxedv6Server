@@ -388,7 +388,7 @@ await Favorites.findOneAndRemove({usertoken: req.params.usertok, companynaam: re
 
 router.post('/rates', async (req,res) => {
 
-    const tokenCheck = await Rates.count({companyid: req.body.companyid, usertoken: req.body.usertoken});
+    const tokenCheck = await Rates.count({companyid: req.body.companyid, usertoken: req.body.useremail});
     const extracttokenCount = tokenCheck;
     
     if(extracttokenCount == 0){
@@ -397,7 +397,7 @@ router.post('/rates', async (req,res) => {
             rating: req.body.rating,
             favorite: req.body.favorite,
             companyid: req.body.companyid,
-            usertoken: req.body.usertoken,
+            usertoken: req.body.useremail,
             companynaam: req.body.companynaam
             });
             
