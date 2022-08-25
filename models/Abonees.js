@@ -38,7 +38,7 @@ const UserAbonees = mongoose.Schema({
                                         type: String,
                                         required: false
                                         },
-                                        companysid: {
+                                        companysubscriptie: {
                                             type: String,
                                             required: false
                                             }
