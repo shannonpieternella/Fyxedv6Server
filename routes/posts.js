@@ -152,7 +152,7 @@ router.post('/abonnees', async (req,res) => {
 
  
     extractId = await gebruikers[0]._id.toString();
-    console.log("Email_id " + AboneesCount)
+    console.log("Email_id " + extractId)
 
         const deletedPost = await Abonees.findByIdAndDelete(_id, extractId);
         console.log(extractId + 'Post Deleted')
