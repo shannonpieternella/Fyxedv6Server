@@ -111,6 +111,21 @@ router.post('/notifiedklant', async (req,res) => {
         
           }); //end request
 
+          router.post('/checkofgeabboneerd', async (req,res) => {
+            const AboneesCount = await Abonees.count({Email_id: req.body.emailadres, companysubscriptie: req.body.companysid});
+            const gebruikers = await Abonees.find({Email_id: req.body.emailadres, companysubscriptie: req.body.companysid});
+           
+        if(AboneesCount == 1){
+
+            res.json(true)
+        }else{
+
+            res.json(false)
+        }
+        
+        
+            
+            }); //end request
 
 //abonees
 
