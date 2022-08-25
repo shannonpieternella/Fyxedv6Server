@@ -154,7 +154,7 @@ router.post('/abonnees', async (req,res) => {
     extractId = await gebruikers[0]._id.toString();
     console.log("Email_id " + extractId)
 
-        const deletedPost = await Abonees.findByIdAndDelete(extractId, extractId);
+        const deletedPost = await Abonees.findOneAndDelete({Email_id: req.body.emailadres, companysubscriptie: req.body.companysid})
         console.log(extractId + 'Post Deleted')
         // const achternaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Achternaam: req.body.lastname}});
         // const telefoonnummer = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Telefoonnummer: req.body.telefoonnr}});
