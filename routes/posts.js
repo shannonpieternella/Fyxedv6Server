@@ -397,7 +397,7 @@ router.post('/rates', async (req,res) => {
             rating: req.body.rating,
             favorite: req.body.favorite,
             companyid: req.body.companyid,
-            usertoken: req.body.useremail,
+            useremail: req.body.useremail,
             companynaam: req.body.companynaam
             });
             
