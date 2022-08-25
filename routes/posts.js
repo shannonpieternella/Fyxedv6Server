@@ -130,7 +130,7 @@ router.post('/abonnees', async (req,res) => {
 
     // extractTelefoon = await gebruikers[0].Telefoonnummer.stringify();
     // console.log("Telefoon nummer " + extractTelefoon)
-
+    
     if(AboneesCount == 0) {
         
         const AboneesPost = new Abonees({
