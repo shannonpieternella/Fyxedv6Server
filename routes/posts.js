@@ -641,14 +641,11 @@ res.json(updatedPost);
           const naam = "Name";
           const idNow = await Companies.findOne({_id: req.body.idbedrijf});
           const extractidnow = idNow.checkboxarray[1];
-          if(req.body.idbedrijf != undefined){
+    
             const updatedPost = await companyid.findByIdAndUpdate({_id: req.body.idbedrijf}, { $set: { verification: true }});
     console.log('updated verification')
-          } else{
-    
-            const updatedPost = await companyid.findByIdAndUpdate({_id: req.body.idbedrijf}, { $set: { verification: false }});
-            console.log('not updated verification')
-          }
+         
+
              
         return res.json("Updated onecheck");
                   // console.log('6. database', collectieURL, "prijs geupdate naar: ", outputPrice);
