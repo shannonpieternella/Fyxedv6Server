@@ -642,7 +642,7 @@ res.json(updatedPost);
          // const idNow = await Companies.findOne({_id: req.body.idbedrijf});
          // const extractidnow = idNow.checkboxarray[1];
     
-            const updatedPost = await companyid.findByIdAndUpdate({_id: req.body.idbedrijf}, { $set: { verification: true }});
+            const updatedPost = await Companies.findByIdAndUpdate({_id: req.body.idbedrijf}, { $set: { verification: true }});
     console.log('updated verification')
          
 
