@@ -295,7 +295,7 @@ router.post('/gebruikers', async (req,res) => {
     
     }); //end request
 
-router.post('/mollie', async (req,res) => {
+router.post('/mollie49', async (req,res) => {
 
 
 (async () => {
@@ -303,7 +303,7 @@ router.post('/mollie', async (req,res) => {
     customerId: req.body.customer,
     amount: {
       currency: 'EUR',
-      value: "199.00",
+      value: "49.00",
     },
     times: 4,
     interval: '1 month',
@@ -317,6 +317,52 @@ router.post('/mollie', async (req,res) => {
 res.json('Gelukt nuuu');
 
 }); //end request
+
+router.post('/mollie99', async (req,res) => {
+
+
+    (async () => {
+      const subscription = await mollieClient.customers_subscriptions.create({
+        customerId: req.body.customer,
+        amount: {
+          currency: 'EUR',
+          value: "99.00",
+        },
+        times: 4,
+        interval: '1 month',
+        description: req.body.calc,
+        webhookUrl: req.body.webhooking,
+    
+    
+      });
+    })();
+    
+    res.json('Gelukt nuuu');
+    
+    }); //end request
+
+    router.post('/mollie199', async (req,res) => {
+
+
+        (async () => {
+          const subscription = await mollieClient.customers_subscriptions.create({
+            customerId: req.body.customer,
+            amount: {
+              currency: 'EUR',
+              value: "199.00",
+            },
+            times: 4,
+            interval: '1 month',
+            description: req.body.calc,
+            webhookUrl: req.body.webhooking,
+        
+        
+          });
+        })();
+        
+        res.json('Gelukt nuuu');
+        
+        }); //end request
 
 
 router.post('/favorites', async (req,res) => {
@@ -415,6 +461,28 @@ router.post('/rates', async (req,res) => {
         res.json('User engagement and company already in engament db');
         console.log('User engagement and company already in engament db');  
     }
+    
+
+}); //end request
+
+router.post('/ratestotal', async (req,res) => {
+
+    const tokenCheck = await Rates.count({companyid: req.body.companyid});
+    const updatedPost = await Rates.find({companyid: req.body.companyid});
+    const savedRating = pw + savedRating;
+    const totalRating = savedRating / tokenCheck;
+
+    console.log(tokenCheck + " count" + "savedrating " + savedRating + "total rating " + totalRating);
+
+for(i=0; i < tokenCheck; i++){
+    pw = await updatedPost[i].rating.toString();
+    console.log(pw + " rating")
+
+}
+    
+    
+    
+   
     
 
 }); //end request
