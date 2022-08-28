@@ -630,6 +630,39 @@ res.json(updatedPost);
             res.json({ message: err });
             }
     });    
+
+
+    //  set limit chats en agenda appointments after payment 
+
+    router.patch('/companysublimit', async (req,res) => {
+        try{
+    // const updatedPost = await mint.findByIdAndUpdate(
+    //     {_id: req.params.postId },
+    // { $set: { Name: req.params.checkValue }}
+
+       //   const naam = "Name";
+         // const idNow = await Companies.findOne({_id: req.body.idbedrijf});
+         // const extractidnow = idNow.checkboxarray[1];
+    
+            const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.idbedrijf}, { $set: { limitchatcount: req.body.limitchat }});
+
+            const updatedPost4 = await Companies.findByIdAndUpdate({_id: req.body.idbedrijf}, { $set: { limitagenda: req.body.limitbooking }});
+
+            console.log('updated company sub limit')
+         
+
+             
+        return res.json("Updated onecheck sub limit");
+                  // console.log('6. database', collectieURL, "prijs geupdate naar: ", outputPrice);
+       
+    
+    } catch (err) {
+        res.json({ message: err});
+    
+    }
+        });
+
+        //set company verified to true from admin dashboard
    
     router.patch('/verifycompany', async (req,res) => {
         try{
@@ -643,7 +676,8 @@ res.json(updatedPost);
          // const extractidnow = idNow.checkboxarray[1];
     
             const updatedPost = await Companies.findByIdAndUpdate({_id: req.body.idbedrijf}, { $set: { verification: true }});
-    console.log('updated verification')
+           
+            console.log('updated verification')
          
 
              
