@@ -30,6 +30,18 @@ const mollieClient = createMollieClient({ apiKey: 'test_Mq4M2FHdQNtrjmqcUtjJxaq5
 const router = express.Router();
 
 
+
+router.post('/checklimitscompany', async (req,res) => {
+
+    const tokenCheck = await Inbox.find({_id: req.body.id});
+    const extracttokenCount = tokenCheck;
+    
+    res.json(tokenCheck);
+    
+    
+
+}); //end request
+
 router.post('/notify', async (req,res) => {
           
     const tokenCheck = await Companies.find({_id: req.body.companyid});
@@ -67,6 +79,7 @@ router.post('/notify', async (req,res) => {
                             
         
           }); //end request
+
 
 
 
