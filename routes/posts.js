@@ -40,6 +40,17 @@ router.post('/addcountagenda', async (req,res) => {
     res.json(updatedPost2);
 }); //end request
 
+router.post('/addcountchat', async (req,res) => {
+
+    const tokenCheck = await Companies.find({_id: req.body.companyid});
+
+    const token = await tokenCheck[0].chatcount;
+   
+    console.log(" chatount. " + token);
+    const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.companyid}, { $set: { chatcount: token + 1 }});
+    res.json(updatedPost2);
+}); //end request
+
 
 router.post('/checklimitscompany', async (req,res) => {
 
