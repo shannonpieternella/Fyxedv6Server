@@ -33,10 +33,10 @@ const router = express.Router();
 
 router.post('/checklimitscompany', async (req,res) => {
 
-    const tokenCheck = await Inbox.find({_id: req.body.id});
+    const tokenCheck = await Companies.find({_id: req.body.id});
     const extracttokenCount = tokenCheck;
     
-    res.json({tokenCheck});
+    res.json(tokenCheck);
     
     
 
