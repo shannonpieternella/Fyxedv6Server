@@ -35,7 +35,7 @@ router.post('/addcountagenda', async (req,res) => {
 
     const token = await tokenCheck[0].agendacount;
    
-    console.log(" agendacount " + token);
+    console.log(" agendacount. " + token);
     const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.companyid}, { $set: { agendacount: token + 1 }});
     res.json(updatedPost2);
 }); //end request
