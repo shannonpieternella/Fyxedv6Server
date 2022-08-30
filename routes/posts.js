@@ -29,6 +29,17 @@ const mollieClient = createMollieClient({ apiKey: 'test_Mq4M2FHdQNtrjmqcUtjJxaq5
 
 const router = express.Router();
 
+router.post('/checkinboxklant', async (req,res) => {
+
+    const tokenCheck = await Inbox.count({user: req.body.klantid, ondernemer: req.body.ondernemerid});
+
+    const token = await tokenCheck[0].agendacount;
+   
+    console.log(" count. " + tokenCheck);
+    // const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.companyid}, { $set: { agendacount: token + 1 }});
+    res.json("count " + tokenCheck);
+}); //end request
+
 router.post('/addcountagenda', async (req,res) => {
 
     const tokenCheck = await Companies.find({_id: req.body.companyid});
