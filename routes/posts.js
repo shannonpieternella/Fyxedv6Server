@@ -31,7 +31,7 @@ const router = express.Router();
 
 router.post('/checkinboxklant', async (req,res) => {
 
-    const tokenCheck = await Inbox.count({user: req.body.klantid, ondernemer: req.body.ondernemerid});
+    const tokenCheck = await Inbox.count({user: req.body.klantid});
 
     // const token = await tokenCheck[0].agendacount;
    
