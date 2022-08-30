@@ -36,9 +36,9 @@ router.post('/checkinboxklant', async (req,res) => {
 
     // const token = await tokenCheck[0].agendacount;
    
-    console.log(" count. " + tokenCheck);
+    console.log(" count. " + AboneesCount);
     // const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.companyid}, { $set: { agendacount: token + 1 }});
-    res.json("count " + tokenCheck + " count two " + AboneesCount +  " user " + req.body.klantid + " ondernemer " + req.body.ondernemerid);
+    res.json(AboneesCount);
 }); //end request
 
 router.post('/addcountagenda', async (req,res) => {
