@@ -948,7 +948,7 @@ console.log('testwerkt')
 
               if( req.body.typebeschrijving == 'beschrijving' ){
                 console.log('naam')
-                const updatedPost = await Companies.findByIdAndUpdate({_id: req.body.id}, { $set: { Bedrijfstype: req.body.bedrijfsomschrijvingofficial}});
+                const updatedPost = await Companies.findByIdAndUpdate({_id: req.body.id}, { $set: { Beschrijving: req.body.bedrijfsomschrijvingofficial}});
                 res.json(req.body.bedrijfstypeofficial);
               }
 
