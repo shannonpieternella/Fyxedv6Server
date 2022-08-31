@@ -918,31 +918,31 @@ console.log('testwerkt')
 
               if( req.body.bedrijfsnaam == 'naambedrijf' ){
                 console.log('naam')
-                const updatedPost = await Companies.findByIdAndUpdate({_id: req.body.id}, { $set: { Bedrijfsnaam: req.body.bedrijfsnaam}});
+                const updatedPost = await Companies.findByIdAndUpdate({_id: req.body.id}, { $set: { Bedrijfsnaam: req.body.officialname}});
                 res.json(req.body.Beschrijving);
               }
 
-              if( req.body.stad == 'stad' ){
+              if( req.body.stadnu == 'stad' ){
                 console.log('naam')
-                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Stad: req.body.stad}});
+                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Stad: req.body.stadnu}});
                 res.json(req.body.Beschrijving);
               }
 
-              if( req.body.maplink == 'maplink' ){
+              if( req.body.maplinknu == 'maplink' ){
                 console.log('naam')
-                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { maplink: req.body.maplink}});
+                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { maplink: req.body.maplinknu}});
                 res.json(req.body.Beschrijving);
               }
 
-              if( req.body.profielimage == 'profielimage' ){
+              if( req.body.profielimagenu == 'profielimage' ){
                 console.log('naam')
-                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Imagenew: req.body.profielimage}});
+                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Imagenew: req.body.profielimagenu}});
                 res.json(req.body.Beschrijving);
               }
 
-              if( req.body.typebedrijf == 'bedrijfstype' ){
+              if( req.body.typebedrijfnu == 'bedrijfstype' ){
                 console.log('naam')
-                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Bedrijfstype: req.body.bedrijfstype}});
+                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Bedrijfstype: req.body.bedrijfstypenu}});
                 res.json(req.body.Beschrijving);
               }
 
