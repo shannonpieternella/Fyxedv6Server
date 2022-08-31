@@ -916,9 +916,9 @@ console.log('testwerkt')
         console.log('testwerkt')
             
 
-              if( req.body.naambedrijf == 'naambedrijf' ){
+              if( req.body.bedrijfsnaam == 'naambedrijf' ){
                 console.log('naam')
-                const updatedPost = await Companies.findByIdAndUpdate({_id: '621092d8c01b17ebb4cba0a8'}, { $set: { Bedrijfsnaam: req.body.naambedrijf}});
+                const updatedPost = await Companies.findByIdAndUpdate({_id: req.body.id}, { $set: { Bedrijfsnaam: req.body.bedrijfsnaam}});
                 res.json(req.body.Beschrijving);
               }
 
