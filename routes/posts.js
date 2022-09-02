@@ -29,7 +29,7 @@ const mollieClient = createMollieClient({ apiKey: 'test_Mq4M2FHdQNtrjmqcUtjJxaq5
 
 const router = express.Router();
 
-router.post('/ondernemerlimit', async (req,res) => {
+router.post('/limitbedrijf', async (req,res) => {
 
     console.log('hoii');
           
