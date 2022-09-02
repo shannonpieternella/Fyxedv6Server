@@ -46,7 +46,7 @@ router.post('/limitbedrijf', async (req,res) => {
     "to": token,
     "title": req.body.limiettitle,
     "badge": 42,
-    "body": req.limit.limietmessage,
+    "body": req.body.limietmessage,
     "data": {
         textnew: "Je hebt een nieuw bericht!"
     }
