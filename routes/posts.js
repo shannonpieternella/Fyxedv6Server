@@ -144,12 +144,12 @@ router.post('/notify', async (req,res) => {
           router.post('/pushbroadcast', async (req,res) => {
           
             const tokenCheck = await Abonees.find({companysubscriptie: req.body.idondernemer});
-            
+            const tokenCount = await Abonees.count({companysubscriptie: req.body.idondernemer});
             
         
             const token = await tokenCheck[0].pushtoken.toString();
             await console.log(' token ', token);
-        
+            await console.log(' tokenCount ', tokenCount);
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
         
