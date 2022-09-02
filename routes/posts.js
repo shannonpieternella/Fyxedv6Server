@@ -31,13 +31,17 @@ const router = express.Router();
 
 
 
-router.get('/dashboardadmin', async (req,res) => {
+router.post('/dashboardadmin', async (req,res) => {
 
-    const admincheck = await Companies.find({});
+    // const admincheck = await Companies.find({_id: req.body.idbedrijf});
 
+    // const token = await admincheck[0]._id;
    
-    console.log(" count. " + admincheck);
-    res.json(admincheck);
+    // console.log(" chatount. " + token);
+    const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.companyid}, { $set: { verification: true }});
+   
+    // console.log(" count. " + admincheck);
+    res.json("done changed verification");
 }); //end request
 
 router.post('/checkinboxklant', async (req,res) => {
