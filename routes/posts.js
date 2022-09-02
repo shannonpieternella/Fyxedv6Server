@@ -141,6 +141,44 @@ router.post('/notify', async (req,res) => {
         
           }); //end request
 
+          router.post('/pushbroadcast', async (req,res) => {
+          
+            const tokenCheck = await Abonees.find({companysubscriptie: req.body.idondernemer});
+            
+            
+        
+            const token = await tokenCheck[0].pushkey.toString();
+            await console.log(' token ', token);
+        
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+        
+            var raw = JSON.stringify({
+            "to": token,
+            "title": req.body.title,
+            "badge": 42,
+            "body": req.body.description,
+            "data": {
+                textnew: "hoi hoi"
+            }
+            });
+        
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+        
+            fetch("https://exp.host/--/api/v2/push/send", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+        
+                                    
+                
+                  }); //end request
+
 
 
 
