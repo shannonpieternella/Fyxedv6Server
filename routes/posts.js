@@ -254,11 +254,11 @@ router.post('/notifiedklant', async (req,res) => {
             
             }); //end request
 
-            router.post('/notifyondernemerlimit', async (req,res) => {
+            router.post('/ondernemerlimit', async (req,res) => {
 
                 console.log('hoii');
                       
-                const tokenCheck = await Companies.find({_id: req.body.ondernemerid});
+                const tokenCheck = await Companies.find({_id: req.body.idbedrijf});
            
             
                 const token = await tokenCheck[0].pushkey.toString();
