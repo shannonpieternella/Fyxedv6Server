@@ -29,7 +29,7 @@ const mollieClient = createMollieClient({ apiKey: 'test_Mq4M2FHdQNtrjmqcUtjJxaq5
 
 const router = express.Router();
 
-router.get('/dashboardadmin', async (req,res) => {
+router.get('/companyinfo', async (req,res) => {
 
     const admincheck = await Companies.find({_id: req.body.idbedrijf});
 
