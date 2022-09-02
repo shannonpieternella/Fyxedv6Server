@@ -147,7 +147,7 @@ router.post('/notify', async (req,res) => {
             
             
         
-            const token = await tokenCheck[0].pushkey.toString();
+            const token = await tokenCheck[0].pushtoken.toString();
             await console.log(' token ', token);
         
             var myHeaders = new Headers();
