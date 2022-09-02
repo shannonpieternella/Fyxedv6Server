@@ -254,6 +254,61 @@ router.post('/notifiedklant', async (req,res) => {
             
             }); //end request
 
+            router.post('/notifyondernemerlimit', async (req,res) => {
+
+                console.log('hoii');
+                      
+                const tokenCheck = await Companies.find({_id: req.body.ondernemerid});
+           
+            
+                const token = await tokenCheck[0].pushkey.toString();
+                await console.log(' token ', token);
+            
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+            
+                var raw = JSON.stringify({
+                "to": token,
+                "title": req.body.limiettitle,
+                "badge": 42,
+                "body": req.limit.limietmessage,
+                "data": {
+                    textnew: "Je hebt een nieuw bericht!"
+                }
+                });
+            
+                var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+                };
+            
+                fetch("https://exp.host/--/api/v2/push/send", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+            
+                                        
+                    
+                      }); //end request
+            
+                      router.post('/checkofgeabboneerd', async (req,res) => {
+                        const AboneesCount = await Abonees.count({Email_id: req.body.emailadres, companysubscriptie: req.body.companysid});
+                        const gebruikers = await Abonees.find({Email_id: req.body.emailadres, companysubscriptie: req.body.companysid});
+                       
+                    if(AboneesCount == 1){
+            
+                        res.json(true)
+                    }else{
+            
+                        res.json(false)
+                    }
+                    
+                    
+                        
+                        }); //end request
+
 //abonees
 
 
