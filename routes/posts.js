@@ -42,7 +42,7 @@ if(req.body.booli == true){
     const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.companyid}, { $set: { verification: true }});
    
     // console.log(" count. " + admincheck);
-    res.json("done changed verification to true  ");
+    res.json("done changed verification to true ");
 
 }else{
 
