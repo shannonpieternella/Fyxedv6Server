@@ -34,14 +34,27 @@ const router = express.Router();
 router.post('/dashboardadmin', async (req,res) => {
 
     // const admincheck = await Companies.find({_id: req.body.idbedrijf});
+if(req.body.booli == true){
 
-    // const token = await admincheck[0]._id;
+  // const token = await admincheck[0]._id;
    
     // console.log(" chatount. " + token);
     const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.companyid}, { $set: { verification: true }});
    
     // console.log(" count. " + admincheck);
-    res.json("done changed verification  ");
+    res.json("done changed verification to true  ");
+
+}else{
+
+      // const token = await admincheck[0]._id;
+   
+    // console.log(" chatount. " + token);
+    const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.companyid}, { $set: { verification: false }});
+   
+    // console.log(" count. " + admincheck);
+    res.json("done changed verification to false  ");
+}
+  
 }); //end request
 
 router.post('/checkinboxklant', async (req,res) => {
