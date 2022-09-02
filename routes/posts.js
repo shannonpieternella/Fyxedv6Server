@@ -29,6 +29,17 @@ const mollieClient = createMollieClient({ apiKey: 'test_Mq4M2FHdQNtrjmqcUtjJxaq5
 
 const router = express.Router();
 
+
+
+router.get('/dashboardadmin', async (req,res) => {
+
+    const admincheck = await Companies.find({});
+
+   
+    console.log(" count. " + admincheck);
+    res.json(admincheck);
+}); //end request
+
 router.post('/checkinboxklant', async (req,res) => {
 
     const tokenCheck = await Inbox.count({user: req.body.klantid});
