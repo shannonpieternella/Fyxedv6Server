@@ -146,8 +146,10 @@ router.post('/notify', async (req,res) => {
             const tokenCheck = await Abonees.find({companysubscriptie: req.body.idondernemer});
             const tokenCount = await Abonees.count({companysubscriptie: req.body.idondernemer});
             
-        
-            const token = await tokenCheck[0].pushtoken.toString();
+
+        for(x=0; x < tokenCount; x++){
+
+            const token = await tokenCheck[x].pushtoken.toString();
             await console.log(' token ', token);
             await console.log(' tokenCount ', tokenCount);
             var myHeaders = new Headers();
@@ -175,7 +177,7 @@ router.post('/notify', async (req,res) => {
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
         
-                                    
+        }         
                 
                   }); //end request
 
