@@ -684,7 +684,7 @@ router.post('/ratestotal', async (req,res) => {
     const savedRating = pw + savedRating;
     const totalRating = savedRating / tokenCheck;
 
-    console.log(tokenCheck + " count" + "savedrating " + savedRating + "total rating " + totalRating);
+    console.log(tokenCheck + " count" + "savedratingg " + savedRating + "total rating " + totalRating);
 
 for(i=0; i < tokenCheck; i++){
     pw = await updatedPost[i].rating.toString();
