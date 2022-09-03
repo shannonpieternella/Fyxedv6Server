@@ -45,7 +45,11 @@ const UserSchema = mongoose.Schema({
                                             ondernemerId: {
                                                 type: String,
                                                 required: false
-                                                }
+                                                },
+                                                emailconfirmed: {
+                                                    type: String,
+                                                    required: false
+                                                    }
                                    
     
     
