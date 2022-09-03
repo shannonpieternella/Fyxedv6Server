@@ -153,7 +153,7 @@ router.post('/addcountchat', async (req,res) => {
 
     const tokenCheck = await Companies.find({_id: req.body.companyid});
 
-    if(token == undefined){
+    if(await tokenCheck[0].chatcount == undefined){
 
         console.log('skipchatcount');
     }else{
