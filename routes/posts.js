@@ -254,45 +254,45 @@ router.post('/notify', async (req,res) => {
 
 
 
-router.post('/notifiedklant', async (req,res) => {
+    router.post('/notifiedklant', async (req,res) => {
 
-    console.log('hoii');
-          
-    const tokenCheck = await Users.find({_id: req.body.klantid});
-    const textnew = req.body.message;
-    await console.log(' text', textnew);
+        console.log('hoii');
+            
+        const tokenCheck = await Users.find({_id: req.body.klantid});
+        const textnew = req.body.message;
+        await console.log(' text', textnew);
 
-    const token = await tokenCheck[0].pushtoken.toString();
-    await console.log(' token ', token);
+        const token = await tokenCheck[0].pushtoken.toString();
+        await console.log(' token ', token);
 
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-    "to": token,
-    "title": "Fyxed",
-    "badge": 42,
-    "body": textnew,
-    "data": {
-        textnew: "Je hebt een nieuw bericht!"
-    }
-    });
+        var raw = JSON.stringify({
+        "to": token,
+        "title": "Fyxed",
+        "badge": 42,
+        "body": textnew,
+        "data": {
+            textnew: "Je hebt een nieuw bericht!"
+        }
+        });
 
-    var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
-    };
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+        };
 
-    fetch("https://exp.host/--/api/v2/push/send", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+        fetch("https://exp.host/--/api/v2/push/send", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 
-                            
-        
-          }); //end request
+                                
+            
+            }); //end request
 
           router.post('/checkofgeabboneerd', async (req,res) => {
             const AboneesCount = await Abonees.count({Email_id: req.body.emailadres, companysubscriptie: req.body.companysid});
