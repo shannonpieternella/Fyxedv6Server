@@ -447,7 +447,7 @@ router.post('/gebruikers', async (req,res) => {
             pushtoken: req.body.pushtoken,
             ondernemer: req.body.ondernemer,
             ondernemerId: req.body.ondernemerId,
-            emailconfirmed: req.body.emailconfirmed
+            emailconfirmed: req.body.emailconfirmednow
             });
             
             userPost.save()
