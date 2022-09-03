@@ -158,12 +158,13 @@ router.post('/addcountchat', async (req,res) => {
         console.log('skipchatcount');
     }else{
         const token = await tokenCheck[0].chatcount;
+        console.log(" chatount  " + token);
+        const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.companyid}, { $set: { chatcount: token + 1 }});
+        res.json(updatedPost2);
     }
     
    
-    console.log(" chatount  " + token);
-    const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.companyid}, { $set: { chatcount: token + 1 }});
-    res.json(updatedPost2);
+   
 }); //end request
 
 
