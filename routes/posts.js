@@ -385,7 +385,7 @@ router.post('/abonnees', async (req,res) => {
     router.post('/abonneescount', async (req,res) => {
 
         const AboneesCount = await Abonees.count({companysubscriptie: req.body.companysid});
-        const gebruikers = await Abonees.find({Email_id: req.body.emailadres, companysubscriptie: req.body.companysid});
+        const gebruikers = await Abonees.find({companysubscriptie: req.body.companysid});
         //const companySubscribed = await Abonees.find({});
         await console.log('Abonees Countt' + AboneesCount);
     
