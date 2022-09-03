@@ -47,7 +47,7 @@ const UserSchema = mongoose.Schema({
                                                 required: false
                                                 },
                                                 emailconfirmed: {
-                                                    type: String,
+                                                    type: Boolean,
                                                     required: false
                                                     }
                                    
