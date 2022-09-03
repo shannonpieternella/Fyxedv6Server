@@ -155,7 +155,7 @@ router.post('/addcountchat', async (req,res) => {
 
     const token = await tokenCheck[0].chatcount;
    
-    console.log(" chatount. " + token);
+    console.log(" chatount." + token);
     const updatedPost2 = await Companies.findByIdAndUpdate({_id: req.body.companyid}, { $set: { chatcount: token + 1 }});
     res.json(updatedPost2);
 }); //end request
