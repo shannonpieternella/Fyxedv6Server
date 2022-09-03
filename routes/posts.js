@@ -109,6 +109,23 @@ if(req.body.booli == true){
   
 }); //end request
 
+router.post('/klantondernemernu', async (req,res) => {
+
+    // const admincheck = await Companies.find({_id: req.body.idbedrijf});
+
+
+  // const token = await admincheck[0]._id;
+   
+    // console.log(" chatount. " + token);
+    const updatedPost2 = await Users.findByIdAndUpdate({_id: req.body.klantid}, { $set: { ondernemer: req.body.boolvalue }});
+    const updatedPost3 = await Users.findByIdAndUpdate({_id: req.body.klantid}, { $set: { ondernemerId: req.body.ondernemerid }});
+   
+    // console.log(" count. " + admincheck);
+    res.json("done changed verification to tru");
+
+  
+}); //end request
+
 router.post('/checkinboxklant', async (req,res) => {
 
     const tokenCheck = await Inbox.count({user: req.body.klantid});
