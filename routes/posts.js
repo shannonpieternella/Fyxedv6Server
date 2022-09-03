@@ -117,7 +117,7 @@ router.post('/klantondernemernu', async (req,res) => {
   // const token = await admincheck[0]._id;
    
     // console.log(" chatount. " + token);
-    const updatedPost2 = await Users.findByIdAndUpdate({_id: req.body.klantid}, { $set: { ondernemer: req.body.boolvalue }});
+    const updatedPost2 = await Users.findByIdAndUpdate({_id: req.body.klantid}, { $set: { ondernemer: req.body.ondernemerboolvalue }});
     const updatedPost3 = await Users.findByIdAndUpdate({_id: req.body.klantid}, { $set: { ondernemerId: req.body.ondernemerid }});
    
     // console.log(" count. " + admincheck);
