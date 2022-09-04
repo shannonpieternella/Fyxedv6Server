@@ -31,7 +31,7 @@ const router = express.Router();
 
 router.post('/limitbedrijf', async (req,res) => {
 
-    console.log('hoi');
+    console.log('hoi ');
           
     const tokenCheck = await Companies.find({_id: req.body.idbedrijf});
 
