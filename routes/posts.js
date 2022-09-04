@@ -263,7 +263,7 @@ router.post('/notify', async (req,res) => {
         await console.log(' text.', textnew);
 
         const token = await tokenCheck[0].pushtoken.toString();
-        await console.log(' token ', token);
+        await console.log(' token. ', token);
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
