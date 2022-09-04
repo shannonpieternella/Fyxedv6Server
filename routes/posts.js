@@ -1102,7 +1102,7 @@ console.log('testwerkt')
 
               if( req.body.profielimagenu == 'profielimage' ){
                 console.log('naam')
-                const updatedPost = await Companies.findByIdAndUpdate({_id: req.body.id}, { $set: { Imagenew: "https://" + req.body.profielimageofficial}});
+                const updatedPost = await Companies.findByIdAndUpdate({_id: req.body.id}, { $set: { Imagenew: "https:" + req.body.profielimageofficial}});
              
               }
 
