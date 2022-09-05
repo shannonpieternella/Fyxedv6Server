@@ -167,7 +167,7 @@ router.post('/confirmmail', async (req,res) => {
     const token = await tokenCheck[0].emailconfirmed;
    
     console.log(" email confirmed value. " + token);
-    const updatedPost2 = await Users.findByIdAndUpdate({Email_id: req.body.mail}, { $set: { emailconfirmed: true }});
+    const updatedPost2 = await Users.findOneAndUpdate({Email_id: req.body.mail}, {emailconfirmed: true} );
     res.json(updatedPost2);
 }); //end request
 
