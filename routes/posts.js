@@ -162,7 +162,7 @@ router.post('/addcountchat', async (req,res) => {
 
 router.post('/confirmmail', async (req,res) => {
 
-    const tokenCheck = await User.find({Email_id: req.body.mail});
+    const tokenCheck = await Users.find({Email_id: req.body.mail});
 
     const token = await tokenCheck[0].emailconfirmed;
    
