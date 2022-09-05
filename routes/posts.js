@@ -160,6 +160,16 @@ router.post('/addcountchat', async (req,res) => {
     res.json(updatedPost2);
 }); //end request
 
+router.post('/confirmmail', async (req,res) => {
+
+    const tokenCheck = await User.find({Email_id: req.body.mail});
+
+    const token = await tokenCheck[0].emailconfirmed;
+   
+    console.log(" email confirmed value " + token);
+    const updatedPost2 = await Users.findByIdAndUpdate({Email_id: req.body.mail}, { $set: { emailconfirmed: true }});
+    res.json(updatedPost2);
+}); //end request
 
 router.post('/checklimitscompany', async (req,res) => {
 
