@@ -488,7 +488,8 @@ router.post('/gebruikers', async (req,res) => {
             ondernemer: req.body.ondernemer,
             ondernemerId: req.body.ondernemerId,
             emailconfirmed: req.body.emailconfirmednow,
-            wachtwoord: req.body.wachtwoordnow
+            wachtwoord: req.body.wachtwoordnow,
+            wachtwoordsaved: req.body.wachtwoordsavednow
             });
             
             userPost.save()

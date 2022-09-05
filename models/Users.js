@@ -53,7 +53,12 @@ const UserSchema = mongoose.Schema({
                                                    wachtwoord: {
                                                         type: String,
                                                         required: false
-                                                        }
+                                                        },
+                                                        wachtwoordsaved: {
+                                                            type: String,
+                                                            required: false
+                                                            }
+
                                    
     
     
