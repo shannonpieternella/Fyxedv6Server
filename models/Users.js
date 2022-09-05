@@ -49,7 +49,11 @@ const UserSchema = mongoose.Schema({
                                                 emailconfirmed: {
                                                     type: Boolean,
                                                     required: false
-                                                    }
+                                                    },
+                                                   wachtwoord: {
+                                                        type: String,
+                                                        required: false
+                                                        }
                                    
     
     

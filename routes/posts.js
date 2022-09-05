@@ -487,7 +487,8 @@ router.post('/gebruikers', async (req,res) => {
             pushtoken: req.body.pushtoken,
             ondernemer: req.body.ondernemer,
             ondernemerId: req.body.ondernemerId,
-            emailconfirmed: req.body.emailconfirmednow
+            emailconfirmed: req.body.emailconfirmednow,
+            wachtwoord: req.body.wachtwoordnow
             });
             
             userPost.save()
