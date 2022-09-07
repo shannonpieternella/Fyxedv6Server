@@ -584,7 +584,7 @@ router.post('/mollie99', async (req,res) => {
           });
         })();
         
-        res.json('Gelukt nuuu');
+        res.json('Gelukt nuuuu');
         
         }); //end request
 
