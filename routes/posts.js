@@ -121,7 +121,7 @@ router.post('/klantondernemernu', async (req,res) => {
     const updatedPost3 = await Users.findByIdAndUpdate({_id: req.body.klantid}, { $set: { ondernemerId: req.body.ondernemerid }});
    
     // console.log(" count. " + admincheck);
-    res.json("done changed verification to tru");
+    res.json("done changed verification to true");
 
   
 }); //end request
@@ -476,6 +476,7 @@ router.post('/gebruikers', async (req,res) => {
 
     // extractTelefoon = await gebruikers[0].Telefoonnummer.stringify();
     // console.log("Telefoon nummer " + extractTelefoon)
+    const emailLowercase = req.body.emailadres.toLocaleLowerCase();
 
     if(gebruikersCount == 0) {
         
@@ -483,7 +484,7 @@ router.post('/gebruikers', async (req,res) => {
             Voornaam: req.body.naam,
             Achternaam: req.body.lastname,
             Telefoonnummer: req.body.telefoonnr,
-            Email_id: req.body.emailadres,
+            Email_id: emailLowercase,
             pushtoken: req.body.pushtoken,
             ondernemer: req.body.ondernemer,
             ondernemerId: req.body.ondernemerId,
@@ -508,7 +509,7 @@ router.post('/gebruikers', async (req,res) => {
         const voornaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Voornaam: req.body.naam}});
         const achternaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Achternaam: req.body.lastname}});
         const telefoonnummer = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Telefoonnummer: req.body.telefoonnr}});
-        const mailadres = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Email_id: req.body.emailadres}});
+        const mailadres = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Email_id: emailLowercase}});
 
 
     }
