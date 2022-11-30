@@ -510,6 +510,7 @@ router.post('/gebruikers', async (req,res) => {
         const achternaam = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Achternaam: req.body.lastname}});
         const telefoonnummer = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Telefoonnummer: req.body.telefoonnr}});
         const mailadres = await Users.findByIdAndUpdate({_id: extractId}, { $set: { Email_id: emailLowercase}});
+        res.json(data);
 
 
     }
